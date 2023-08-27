@@ -8,5 +8,6 @@ public interface Funcionais
 {
 
  Role cargoVerificador = ygd.getRoleById("1145333294393724958");
+ Role cargoVerificado = ygd.getRoleById("1145365199075934269");
 
 }

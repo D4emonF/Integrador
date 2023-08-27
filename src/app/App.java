@@ -3,7 +3,9 @@ package app;
 import app.commands.mannagers.MessageReceived;
 import app.commands.prefixCommands.embeds.VerificationEmbed;
 import app.commands.prefixCommands.mod.Clear;
-import app.events.functions.Verificacao;
+import app.events.bot.OnReady;
+import app.events.guild.Verificacao;
+import app.events.guild.MemberJoin;
 import app.events.guild.VoiceJoin;
 import app.events.guild.VoiceLeft;
 import app.events.guild.VoiceMove;
@@ -19,6 +21,9 @@ public class App {
 
         public static JDA jda = JDABuilder.create(token, EnumSet.allOf(GatewayIntent.class)).build();
     public static void main(String[] args) throws InterruptedException {
+
+        jda.addEventListener(new OnReady());
+
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new VoiceJoin());
         jda.addEventListener(new VoiceLeft());
@@ -26,5 +31,6 @@ public class App {
         jda.addEventListener(new VerificationEmbed());
         jda.addEventListener(new Clear());
         jda.addEventListener(new Verificacao());
+        jda.addEventListener(new MemberJoin());
     }
 }

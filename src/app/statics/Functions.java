@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -78,9 +79,6 @@ public class Functions
             if (!file.exists()) {
                 // Se o arquivo não existir, crie um novo arquivo
                 file.createNewFile();
-            } else {
-                // Se existir, excluir
-                file.deleteOnExit();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -89,17 +87,21 @@ public class Functions
 
     // Método para salvar o ID de um usuário em um arquivo
     public static void salvarIdDoUsuario(String nomeArquivo, String id) {
-        try {
-            // Abrir o arquivo em modo de gravação
-            FileWriter writer = new FileWriter(nomeArquivo + ".txt", true);
+        List<String> ids = new ArrayList<>();
+        carregarIdsDosUsuarios(nomeArquivo, ids);
+        if (!ids.contains(id)) {
+            try {
+                // Abrir o arquivo em modo de gravação
+                FileWriter writer = new FileWriter(nomeArquivo + ".txt", true);
 
-            // Adicionar o ID do usuário no final do arquivo
-            writer.write(id + "\n");
+                // Adicionar o ID do usuário no final do arquivo
+                writer.write(id + "\n");
 
-            // Fechar o arquivo
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+                // Fechar o arquivo
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
