@@ -3,6 +3,7 @@ package app;
 import app.commands.mannagers.MessageReceived;
 import app.commands.prefixCommands.embeds.VerificationEmbed;
 import app.commands.prefixCommands.mod.Clear;
+import app.events.functions.Verificacao;
 import app.events.guild.VoiceJoin;
 import app.events.guild.VoiceLeft;
 import app.events.guild.VoiceMove;
@@ -24,5 +25,6 @@ public class App {
         jda.addEventListener(new VoiceMove());
         jda.addEventListener(new VerificationEmbed());
         jda.addEventListener(new Clear());
+        jda.addEventListener(new Verificacao());
     }
 }
