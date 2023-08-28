@@ -17,7 +17,7 @@ public class MessageReceived extends ListenerAdapter {
             if (!comando.equals("clear")) {
                 excluirMensagem(event.getMessage());
             }
-            System.out.println(comando);
+            System.out.println(event.getMember().getEffectiveName() + " usou o comando: " + comando);
 
         }
         if (prefixos.stream().anyMatch(mensagem[0]::startsWith)){
