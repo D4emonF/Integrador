@@ -17,8 +17,7 @@ import static app.statics.Basics.ygd;
 import static app.statics.Functions.*;
 import static app.statics.canais.Entrada.canalFichasVerificacao;
 import static app.statics.canais.Entrada.canalVerificacao;
-import static app.statics.cargos.Funcionais.cargoVerificado;
-import static app.statics.cargos.Funcionais.cargoVerificador;
+import static app.statics.cargos.Funcionais.*;
 import static app.statics.cargos.Perms.cargoOp;
 import static app.statics.external.ColorPalette.cuttySark;
 import static app.statics.users.Pessoas.davi;
@@ -38,6 +37,7 @@ public class Verificacao extends ListenerAdapter
 
                 Button aceitar = Button.success("aceitarverificacao", "Aceitar");
                 Button negar = Button.danger("negarverificacao", "Negar");
+                Button tempo = Button.secondary("aceitartempo", "Temporário");
 
                 EmbedBuilder verificado = new EmbedBuilder();
                 verificado
@@ -51,7 +51,7 @@ public class Verificacao extends ListenerAdapter
                 verificado.setColor(cuttySark);
 
                 canalFichasVerificacao.sendMessage(davi.getAsMention() + cargoVerificador.getAsMention() + cargoOp.getAsMention()).queue(message -> message.delete().queueAfter(1, TimeUnit.SECONDS));
-                canalFichasVerificacao.sendMessage(event.getMember().getId()).setEmbeds(verificado.build()).setActionRow(aceitar, negar).queue();
+                canalFichasVerificacao.sendMessage(event.getMember().getId()).setEmbeds(verificado.build()).setActionRow(aceitar, negar, tempo).queue();
 
             }
 
@@ -63,6 +63,7 @@ public class Verificacao extends ListenerAdapter
         Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
         Button verificcado = Button.success("verificacaoaceita", "Verificação aceita").asDisabled();
         Button negado = Button.success("verificacaonegada", "Verificação negada").asDisabled();
+        Button tempo = Button.secondary("verificacaotempo", "Verificação temporária").asDisabled();
 
         List<Message> mensagens = canalVerificacao.getHistory().retrievePast(100).complete();
 
@@ -118,6 +119,34 @@ public class Verificacao extends ListenerAdapter
             event.deferEdit().queue();
 
         }
+        if (event.getButton().getId().equals("aceitartempo"))
+        {
+            event.deferEdit().queue();
+
+            EmbedBuilder verificado = new EmbedBuilder();
+            verificado
+                    .setTitle(membro.getUser().getName())
+                    .setThumbnail(membro.getUser().getAvatarUrl())
+                    .setDescription("O membro " + membro.getUser().getAsMention() + " quer ser verificado.");
+            String bannerURL = getBanner(membro.getUser().getId());
+            if (bannerURL != null) {
+                verificado.setImage(bannerURL);
+            }
+            verificado.setColor(Color.gray);
+            verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " aceitou temporariamente o membro");
+
+            event.getMessage().editMessage(" ").queue();
+            event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(tempo).queue();
+
+            for (Message mensagem : mensagens) {
+                if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
+                    mensagem.delete().queue();
+                }
+            }
+
+            ygd.addRoleToMember(membro, cargoTemporario).queue();
+        }
+
 
     }
 }

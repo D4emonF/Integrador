@@ -6,4 +6,5 @@ import static app.statics.Basics.ygd;
 
 public interface Logs {
     TextChannel logTrafego = ygd.getTextChannelById("1145146842506592370");
+    TextChannel logComandos = ygd.getTextChannelById("1145338924043083776");
 }

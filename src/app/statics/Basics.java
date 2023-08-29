@@ -14,5 +14,6 @@ public interface Basics {
     String prefixo = "lc!";
     List<String> prefixos = Arrays.asList("m!", "+", "s!");
     Guild ygd = jda.getGuildById("1144682628532949154");
+    Guild rascunhos = jda.getGuildById("1096975449709629530");
 
 }

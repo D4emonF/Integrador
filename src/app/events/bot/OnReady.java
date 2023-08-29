@@ -15,10 +15,6 @@ import static app.statics.cargos.Funcionais.cargoVerificado;
 public class OnReady extends ListenerAdapter {
     @Override
     public void onReady(ReadyEvent event) {
-        bancoLocal("verificados");
-        List<Member> verificados = ygd.getMembersWithRoles(cargoVerificado);
-        for (Member verificado: verificados) {
-            salvarIdDoUsuario("verificados" ,verificado.getId());
-        }
+
     }
 }

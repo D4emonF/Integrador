@@ -9,6 +9,7 @@ import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import static app.App.jda;
 import static app.statics.Basics.ygd;
 import static app.statics.Functions.gerarTimestamp;
 import static app.statics.canais.Logs.logTrafego;
@@ -22,17 +23,19 @@ public class VoiceJoin extends ListenerAdapter {
         String memberEffectiveName = event.getMember().getEffectiveName();
         if (event.getGuild().equals(ygd)) {
             if (event.getChannelJoined() != null && event.getChannelLeft() == null) {
-                LocalDateTime dateTime = LocalDateTime.now();
-                EmbedBuilder embed = new EmbedBuilder()
-                        .setColor(Color.green)
-                        .setTitle("<:preto_audio:1124562092167540787> | " + "Entrou no canal")
-                        .setDescription("Entrou no canal " + channelJoined.getAsMention() + " `" + channelJoined.getName() + "`")
-                        .addField("Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
+                if (!event.getMember().getUser().equals(jda.getSelfUser())) {
+                    LocalDateTime dateTime = LocalDateTime.now();
+                    EmbedBuilder embed = new EmbedBuilder()
+                            .setColor(Color.green)
+                            .setTitle("<:preto_audio:1124562092167540787> | " + "Entrou no canal")
+                            .setDescription("Entrou no canal " + channelJoined.getAsMention() + " `" + channelJoined.getName() + "`")
+                            .addField("Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
 
-                        .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl())
-                        .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
+                            .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl())
+                            .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
 
-                Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
+                    Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
+                }
             }
         }
     }

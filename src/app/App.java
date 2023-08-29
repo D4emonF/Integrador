@@ -4,6 +4,7 @@ import app.commands.mannagers.MessageReceived;
 import app.commands.prefixCommands.embeds.VerificationEmbed;
 import app.commands.prefixCommands.misc.Roleta;
 import app.commands.prefixCommands.mod.Clear;
+import app.events.bot.OnGuildReady;
 import app.events.bot.OnReady;
 import app.events.functions.AutoClear;
 import app.events.guild.Verificacao;
@@ -26,6 +27,7 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
 
         jda.addEventListener(new OnReady());
+        jda.addEventListener(new OnGuildReady());
 
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new VoiceJoin());
@@ -37,6 +39,7 @@ public class App {
         jda.addEventListener(new MemberJoin());
         jda.addEventListener(new AutoClear());
         jda.addEventListener(new Roleta());
+
 
         jda.awaitReady();
         jda.getPresence().setPresence(Activity.watching("You got DENIED"), true);
