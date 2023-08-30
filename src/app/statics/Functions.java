@@ -160,7 +160,7 @@ public class Functions
     public static String marcarCargo(Role cargo) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Membros com o cargo `").append(cargo.getName()).append("`").append("\n\n");
+        sb.append("・Membros com o cargo `").append(cargo.getName()).append("`").append("\n\n");
 
         List<Member> membros = ygd.getMembersWithRoles(cargo);
 

@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import static app.statics.Basics.prefixo;
 import static app.statics.Basics.prefixos;
 import static app.statics.canais.Logs.logComandos;
-import static app.statics.external.Emojis.preto_SetaC;
 
 
 public class MessageReceived extends ListenerAdapter {
@@ -52,6 +51,6 @@ public class MessageReceived extends ListenerAdapter {
 
     private void enviarLog(Member member, String comando, Channel canal)
     {
-        logComandos.sendMessage(preto_SetaC.getFormatted() + " " + member.getEffectiveName() + " `" + member.getId() + "` utilizou o comando: ```" + comando + "```Em: " + canal.getAsMention()).queue();
+        logComandos.sendMessage( "<:preto_SetaC:1099342175675891762>  " + member.getEffectiveName() + " `" + member.getId() + "` utilizou o comando: ```" + comando + "```Em: " + canal.getAsMention()).queue();
     }
 }

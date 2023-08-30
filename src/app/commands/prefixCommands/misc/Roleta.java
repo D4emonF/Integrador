@@ -57,7 +57,19 @@ public class Roleta extends ListenerAdapter
             desafios.add("A pessoa que o desafiado mais tem afinidade vai ter que dar em cima de quem o desafiado está gostando ou em cima do ex do desafiado");
             desafios.add("Conte uma história vergonhosa sobre o desafiador, se não souber conte sobre você");
             desafios.add("Conte um date/encontro estranho");
-            desafios.add("Morda um pedaço de cebola com a camera ligada.");
+            desafios.add("Morda um pedaço de cebola com a camera ligada");
+            desafios.add("Conte alguém que você já ficou e ninguém sabe");
+            desafios.add("Diga a maior mentira que já contou na sua vida");
+            desafios.add("Ligue para alguém e comece a pedir desculpas desperadamente, sem explicar o porque");
+            desafios.add("Finja ser um dinossauro");
+            desafios.add("Mande \"Ainda amo meu ex\" para algum amigo");
+            desafios.add("Conte duas mentiras e uma verdade sobre sua vida amorosa e deixe o grupo na dúvida sobre qual é qual");
+            desafios.add("Conte uma história de quando se arrependeu de ficar com alguém e o motivo");
+            desafios.add("Transmita a tela e mostre seu histórico de pesquisas mais recentes no Google");
+            desafios.add("Escolha alguém da call e diga na cara dela o maior defeito dela");
+            desafios.add("Imite uma peak me girl");
+            desafios.add("Quem você levaria dessa call para uma ilha deserta?");
+
 
             if (event.getMember().getVoiceState().inAudioChannel()) {
                 participantes = event.getMember().getVoiceState().getChannel().getMembers();

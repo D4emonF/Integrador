@@ -15,14 +15,7 @@ import static app.statics.cargos.Funcionais.cargoVerificado;
 public class OnGuildReady extends ListenerAdapter {
     @Override
     public void onGuildReady(GuildReadyEvent event) {
-        if (event.getGuild().equals(ygd)){
-            ygd.getAudioManager().openAudioConnection(canalLucius);
-            bancoLocal("verificados");
-            List<Member> verificados = ygd.getMembersWithRoles(cargoVerificado);
-            for (Member verificado: verificados) {
-                salvarIdDoUsuario("verificados" ,verificado.getId());
-            }
-        }
+
 
     }
 }
