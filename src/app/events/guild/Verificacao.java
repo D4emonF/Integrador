@@ -1,6 +1,7 @@
 package app.events.guild;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
@@ -62,7 +63,7 @@ public class Verificacao extends ListenerAdapter
     public void onButtonInteraction(ButtonInteractionEvent event) {
         Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
         Button verificcado = Button.success("verificacaoaceita", "Verificação aceita").asDisabled();
-        Button negado = Button.success("verificacaonegada", "Verificação negada").asDisabled();
+        Button negado = Button.danger("verificacaonegada", "Verificação negada").asDisabled();
         Button tempo = Button.secondary("verificacaotempo", "Verificação temporária").asDisabled();
 
         List<Message> mensagens = canalVerificacao.getHistory().retrievePast(100).complete();
@@ -73,7 +74,7 @@ public class Verificacao extends ListenerAdapter
             verificado
                     .setTitle(membro.getUser().getName())
                     .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " +membro.getUser().getAsMention() + " quer ser verificado.");
+                    .setDescription("O membro " +membro.getUser().getAsMention() + " foi verificado.");
             String bannerURL = getBanner(membro.getUser().getId());
             if (bannerURL != null) {
                 verificado.setImage(bannerURL);
@@ -100,7 +101,7 @@ public class Verificacao extends ListenerAdapter
             verificado
                     .setTitle(membro.getUser().getName())
                     .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " + membro.getUser().getAsMention() + " quer ser verificado.");
+                    .setDescription("O membro " + membro.getUser().getAsMention() + " teve sua verificação NEGADA.");
             String bannerURL = getBanner(membro.getUser().getId());
             if (bannerURL != null) {
                 verificado.setImage(bannerURL);
@@ -116,6 +117,8 @@ public class Verificacao extends ListenerAdapter
             event.getMessage().editMessage(" ").queue();
             event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(negado).queue();
 
+            canalVerificacao.upsertPermissionOverride(membro).deny(Permission.MESSAGE_SEND).queue();
+
             event.deferEdit().queue();
 
         }
@@ -127,7 +130,7 @@ public class Verificacao extends ListenerAdapter
             verificado
                     .setTitle(membro.getUser().getName())
                     .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " + membro.getUser().getAsMention() + " quer ser verificado.");
+                    .setDescription("O membro " + membro.getUser().getAsMention() + " foi aceito temporariamente no servidor.");
             String bannerURL = getBanner(membro.getUser().getId());
             if (bannerURL != null) {
                 verificado.setImage(bannerURL);
