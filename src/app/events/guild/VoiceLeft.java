@@ -28,11 +28,11 @@ public class VoiceLeft extends ListenerAdapter
                     LocalDateTime dateTime = LocalDateTime.now();
                     EmbedBuilder embed = new EmbedBuilder()
                             .setColor(Color.red)
+                            .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false)
                             .setTitle("<:preto_audio:1124562092167540787> | " + "Saiu do canal")
-                            .setDescription("Saiu do canal " + channelLeft.getAsMention() + " `" + channelLeft.getName() + "`")
-                            .addField("Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
-                            .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl())
-                            .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
+                            .addField("<:cinza_chat:1146459421380190259> Canal", event.getChannelLeft().getAsMention() + " | `" + event.getChannelLeft().getName()+ "`", true)
+                            .addField("<:preto_calendario:1141067399790088353> Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
+                            .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl());
 
                     Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
                 }

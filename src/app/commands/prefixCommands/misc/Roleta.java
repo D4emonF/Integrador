@@ -72,29 +72,40 @@ public class Roleta extends ListenerAdapter
 
 
             if (event.getMember().getVoiceState().inAudioChannel()) {
-                participantes = event.getMember().getVoiceState().getChannel().getMembers();
+                if (event.getMember().getVoiceState().getChannel().getMembers().size() > 1) {
+                    participantes = event.getMember().getVoiceState().getChannel().getMembers();
 
 
-                System.out.println("Quantidade de desafios:" + desafios.size());
-                System.out.println("Participantes: ");
-                for (Member participante : participantes) {
-                    System.out.println(participante.getEffectiveName());
+                    System.out.println("Quantidade de desafios:" + desafios.size());
+                    System.out.println("Participantes: ");
+                    for (Member participante : participantes) {
+                        System.out.println(participante.getEffectiveName());
+                    }
+
+                    Random random = new Random();
+
+                    Member desafiado = participantes.get(random.nextInt(participantes.size()));
+                    EmbedBuilder desafio = new EmbedBuilder();
+                    desafio
+                            .setTitle("A roleta foi girada!")
+                            .addField("Desafiador", event.getMember().getAsMention(), false)
+                            .addField("Desafio", "`" + desafios.get(random.nextInt(desafios.size())) + "`", false)
+                            .addField("Desafiado", "Entre " + participantes.size() + " participantes, o escolido foi: " + desafiado.getAsMention(), false)
+                            .setColor(bunker)
+                            .setThumbnail(desafiado.getEffectiveAvatar().getUrl())
+                            .setFooter("Sistema desenvolvido por: " + davi.getEffectiveName());
+
+                    event.getChannel().sendMessage(desafiado.getAsMention()).setEmbeds(desafio.build()).queue();
+                }else
+                {
+                    if (!event.getMessage().getChannel().equals(canalComandos)) {
+                        event.getMessage().reply("Você não pode brincar sozinho!").queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
+                    }
+                    else
+                    {
+                        event.getMessage().reply("Você não pode brincar sozinho!").queue();
+                    }
                 }
-
-                Random random = new Random();
-
-                Member desafiado = participantes.get(random.nextInt(participantes.size()));
-                EmbedBuilder desafio = new EmbedBuilder();
-                desafio
-                        .setTitle("A roleta foi girada!")
-                        .addField("Desafiador", event.getMember().getAsMention(), false)
-                        .addField("Desafio", "`" + desafios.get(random.nextInt(desafios.size())) + "`", false)
-                        .addField("Desafiado", "Entre " + participantes.size() + " participantes, o escolido foi: " + desafiado.getAsMention(), false)
-                        .setColor(bunker)
-                        .setThumbnail(desafiado.getEffectiveAvatar().getUrl())
-                        .setFooter("Sistema desenvolvido por: " + davi.getEffectiveName());
-
-                event.getChannel().sendMessage("").setEmbeds(desafio.build()).queue();
             } else
             {
                 if (!event.getMessage().getChannel().equals(canalComandos)) {

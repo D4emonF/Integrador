@@ -1,14 +1,19 @@
 package app.commands.mannagers;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.time.LocalDateTime;
+
 import static app.statics.Basics.prefixo;
 import static app.statics.Basics.prefixos;
+import static app.statics.Functions.gerarTimestamp;
 import static app.statics.canais.Logs.logComandos;
+import static app.statics.external.ColorPalette.monteCarlo;
 
 
 public class MessageReceived extends ListenerAdapter {
@@ -51,6 +56,17 @@ public class MessageReceived extends ListenerAdapter {
 
     private void enviarLog(Member member, String comando, Channel canal)
     {
-        logComandos.sendMessage( "<:preto_SetaC:1099342175675891762>  " + member.getEffectiveName() + " `" + member.getId() + "` utilizou o comando: ```" + comando + "```Em: " + canal.getAsMention()).queue();
+        EmbedBuilder log = new EmbedBuilder();
+        log
+                .setColor(monteCarlo)
+                .setTitle("<:cinza_chat:1146459421380190259> | Comando utilizado")
+                .addField("<:preto_membro:1124563263439507538> Membro", member.getAsMention() + " | `" + member.getId() + "`", true)
+                .addField("<:cinza_hashtag:1146460596917784667> Comando","`" + comando+ "`", true)
+                .addField("<:cinza_chat:1146459421380190259> Canal", canal.getAsMention() + " | `" + canal.getName()+ "`", true)
+                .addField("<:preto_calendario:1141067399790088353> Horario", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">", true)
+                .setThumbnail(member.getEffectiveAvatar().getUrl());
+
+
+        logComandos.sendMessage("").setEmbeds(log.build()).queue();
     }
 }
