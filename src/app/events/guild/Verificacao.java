@@ -2,12 +2,17 @@ package app.events.guild;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.audit.ActionType;
+import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.Webhook;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
+import net.dv8tion.jda.api.requests.RestAction;
+import net.dv8tion.jda.api.requests.restaction.pagination.AuditLogPaginationAction;
 
 import java.awt.*;
 import java.util.List;
@@ -88,10 +93,10 @@ public class Verificacao extends ListenerAdapter
 
             for (Message mensagem : mensagens) {
                 if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().queue();
+                    mensagem.delete().reason("Verificação").queue();
                 }
             }
-            ygd.addRoleToMember(membro, cargoVerificado).queue();
+            ygd.addRoleToMember(membro, cargoVerificado).reason("Membro foi verificado").queue();
             bancoLocal("verificados");
             salvarIdDoUsuario("verificados", membro.getId());
         }
@@ -111,13 +116,14 @@ public class Verificacao extends ListenerAdapter
 
             for (Message mensagem : mensagens) {
                 if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().queue();
+                    mensagem.delete().reason("Verificação").queue();
                 }
             }
             event.getMessage().editMessage(" ").queue();
             event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(negado).queue();
 
-            canalVerificacao.upsertPermissionOverride(membro).deny(Permission.MESSAGE_SEND).queue();
+            canalVerificacao.upsertPermissionOverride(membro).deny(Permission.MESSAGE_SEND).reason("Verificação negada").queue();
+
 
             event.deferEdit().queue();
 
@@ -143,7 +149,7 @@ public class Verificacao extends ListenerAdapter
 
             for (Message mensagem : mensagens) {
                 if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().queue();
+                    mensagem.delete().reason("Verificação").queue();
                 }
             }
 

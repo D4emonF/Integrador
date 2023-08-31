@@ -3,6 +3,7 @@ package app.statics;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static app.App.jda;
 import static app.statics.Basics.token;
 import static app.statics.Basics.ygd;
 import static app.statics.canais.Logs.logTrafego;
@@ -71,6 +73,20 @@ public class Functions
         return membro;
     }
 
+    public static User obterUser(String[] mensagem) {
+        User user;
+        System.out.println("id adquirido: " + mensagem[1]);
+        if (mensagem[1].startsWith("<@") && mensagem[1].endsWith(">") || mensagem[1].startsWith("<@!") && mensagem[1].endsWith(">")) {
+            String membroId = mensagem[1].replaceAll("[^0-9]", "");
+            user = jda.getUserById(membroId);
+            System.out.println("Usuário adquirido= " + user);
+        } else {
+            user = jda.getUserById(mensagem[1]);
+            System.out.println("Usuário adquirido= " + user);
+        }
+        return user;
+    }
+
     // Método para criar ou limpar um arquivo local
     public static void bancoLocal(String nomeArquivo) {
         File file = new File(nomeArquivo + ".txt");
@@ -106,35 +122,52 @@ public class Functions
     }
 
     // Método para esvaziar um arquivo local
-    public static void esvaziarArquivo(String nomeArquivo) {
+    public static void limparConteudoArquivo(String nomeArquivo) {
         try {
-            File arquivoOriginal = new File(nomeArquivo + ".txt");
-            File arquivoTemporario = new File(nomeArquivo + "_temp.txt");
-
-            FileReader reader = new FileReader(arquivoOriginal);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-
-            FileWriter writer = new FileWriter(arquivoTemporario);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
-            String linha;
-            while ((linha = bufferedReader.readLine()) != null) {
-                bufferedWriter.write(linha);
-                bufferedWriter.newLine();
+            // Verifica se o nome do arquivo termina com ".txt" e, se não, adiciona essa extensão
+            if (!nomeArquivo.endsWith(".txt")) {
+                nomeArquivo += ".txt";
             }
 
-            bufferedReader.close();
-            bufferedWriter.close();
+            File arquivo = new File(nomeArquivo);
 
-            // Deleta o arquivo original
-            arquivoOriginal.delete();
+            // Cria um FileWriter para escrever no arquivo (isso apagará o conteúdo existente)
+            FileWriter writer = new FileWriter(arquivo);
+            BufferedWriter buffer = new BufferedWriter(writer);
 
-            // Renomeia o arquivo temporário para substituir o arquivo original
-            arquivoTemporario.renameTo(arquivoOriginal);
+            // Fecha o BufferedWriter para salvar as alterações
+            buffer.close();
+
+            System.out.println("Conteúdo do arquivo '" + nomeArquivo + "' foi apagado com sucesso.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static String lerConteudoArquivo(String nomeArquivo) {
+        StringBuilder conteudo = new StringBuilder();
+
+        try {
+            // Verifica se o nome do arquivo termina com ".txt" e, se não, adiciona essa extensão
+            if (!nomeArquivo.endsWith(".txt")) {
+                nomeArquivo += ".txt";
+            }
+
+            BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo));
+            String linha;
+
+            while ((linha = leitor.readLine()) != null) {
+                conteudo.append(linha).append("\n");
+            }
+
+            leitor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return conteudo.toString();
+    }
+
 
     // Método para carregar IDs de usuários de um arquivo local para uma lista
     public static void carregarIdsDosUsuarios(String nomeArquivo, List<String> ids) {

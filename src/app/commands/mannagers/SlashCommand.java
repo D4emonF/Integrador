@@ -25,11 +25,12 @@ public class SlashCommand extends ListenerAdapter
         OptionData thumbnail = new OptionData(OptionType.ATTACHMENT, "thumb", "Imagem da thumbnail", false);
         OptionData canal = new OptionData(OptionType.CHANNEL, "canal", "Canal a ser enviado", false);
 
-
+        OptionData emoji = new OptionData(OptionType.STRING, "emoji", "Emoji ou o ID do emoji a ser procurado", true);
 
 
         //Adiciona os slashs
         commandData.add(Commands.slash("criarembed", "Cria uma mensagem embed.").addOptions(descricao,titulo, cor, footer, imagem, thumbnail, canal));
+        commandData.add(Commands.slash("emojiinfo", "Busca informações sobre um emoji").addOptions(emoji));
 
         //Atualiza toda vez que o bot reinicia
         event.getGuild().updateCommands().addCommands(commandData).queue();
