@@ -61,6 +61,6 @@ public class EmojiInfo extends ListenerAdapter {
                         .setColor(monteCarlo);
                 event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();
             }
-            }
+        }
     }
 }
