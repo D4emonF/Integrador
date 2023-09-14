@@ -1,6 +1,5 @@
 package app.events.guild;
 
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -11,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import static app.statics.Basics.ygd;
 import static app.statics.Functions.carregarIdsDosUsuarios;
 import static app.statics.canais.Entrada.canalVerificacao;
-import static app.statics.cargos.Funcionais.cargoVerificado;
+import static app.statics.cargos.Funcionais.cargoMembro;
 
 public class MemberJoin extends ListenerAdapter {
     @Override
@@ -20,7 +19,7 @@ public class MemberJoin extends ListenerAdapter {
         carregarIdsDosUsuarios("verificados", ids);
         if (ids.contains(event.getMember().getId()))
         {
-            ygd.addRoleToMember(event.getMember(), cargoVerificado).queue();
+            ygd.addRoleToMember(event.getMember(), cargoMembro).queue();
         }
         else
         {

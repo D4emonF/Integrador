@@ -11,6 +11,7 @@ public interface Perms {
     Role cargoOp = ygd.getRoleById("1144701094337978480");
     Role tresEstrelas = ygd.getRoleById("1145504390975864932");
     Role duasEstrelas = ygd.getRoleById("1146466318317539338");
+    Role verificador = ygd.getRoleById("1145333294393724958");
 
     static List<Role> getPermBan() {
         List<Role> permBanList = new ArrayList<>();
@@ -28,6 +29,15 @@ public interface Perms {
         // Adicione outros cargos à lista, se necessário
         return permCargoList;
     }
+
+    static List<Role> getPermVerificador() {
+        List<Role> permVeriList = new ArrayList<>();
+        permVeriList.add(cargoOp);
+        permVeriList.add(verificador);
+
+        return permVeriList;
+    }
+
 
 
     }

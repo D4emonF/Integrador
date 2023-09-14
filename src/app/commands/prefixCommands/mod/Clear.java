@@ -69,7 +69,7 @@ public class Clear extends ListenerAdapter {
                     if (j > 0) {
                         deletados.setTitle("**Foram deletadas " + j + " mensagens**!");
                     } else {
-                        deletados.setTitle("**Não encontrei mensagens nes   se canal**!");
+                        deletados.setTitle("**Não encontrei mensagens neste canal**!");
                     }
 
                     event.getChannel().asTextChannel().sendMessage(membro.getAsMention()).setEmbeds(deletados.build()).queue(message -> message.delete().queueAfter(10, TimeUnit.SECONDS));

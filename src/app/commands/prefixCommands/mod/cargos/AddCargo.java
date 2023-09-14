@@ -62,7 +62,7 @@ public class AddCargo extends ListenerAdapter implements Perms {
                     if (membro != null) {
                         if (cargo != null) {
                             if (maiorCargoModerador.getPositionRaw() > cargo.getPositionRaw() || event.getMember().isOwner()) {
-                                event.getGuild().addRoleToMember(membro, cargo).queue();
+                                event.getGuild().addRoleToMember(membro, cargo).reason("Cargo adicionado por: "+event.getMember().getEffectiveName()).queue();
 
                                 EmbedBuilder embedBuilder = new EmbedBuilder();
 

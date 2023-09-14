@@ -13,6 +13,7 @@ import app.commands.prefixCommands.mod.ban.UnBan;
 import app.commands.prefixCommands.mod.cargos.AddCargo;
 import app.commands.prefixCommands.mod.cargos.Cargo;
 import app.commands.prefixCommands.mod.cargos.RemoveCargo;
+import app.commands.prefixCommands.mod.social.Verificar;
 import app.commands.slash.guild.EmbedCreator;
 import app.commands.slash.misc.EmojiInfo;
 import app.events.bot.OnGuildReady;
@@ -59,6 +60,7 @@ public class App {
         jda.addEventListener(new Afk());
         jda.addEventListener(new Instagram());
         jda.addEventListener(new Soco());
+        jda.addEventListener(new Verificar());
 
 
         jda.awaitReady();

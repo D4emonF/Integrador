@@ -2,17 +2,12 @@ package app.events.guild;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.audit.ActionType;
-import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.Webhook;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
-import net.dv8tion.jda.api.requests.RestAction;
-import net.dv8tion.jda.api.requests.restaction.pagination.AuditLogPaginationAction;
 
 import java.awt.*;
 import java.util.List;
@@ -96,7 +91,7 @@ public class Verificacao extends ListenerAdapter
                         mensagem.delete().reason("Verificação").queue();
                     }
                 }
-                ygd.addRoleToMember(membro, cargoVerificado).reason("Membro foi verificado").queue();
+                ygd.addRoleToMember(membro, cargoMembro).reason("Membro foi verificado").queue();
                 bancoLocal("verificados");
                 salvarIdDoUsuario("verificados", membro.getId());
             }
