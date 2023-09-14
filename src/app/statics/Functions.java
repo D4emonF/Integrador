@@ -73,6 +73,17 @@ public class Functions
         return membro;
     }
 
+    public static Role obterCargo(String[] mensagem) {
+        Role cargo;
+        if (mensagem[1].startsWith("<@") && mensagem[1].endsWith(">") || mensagem[1].startsWith("<@!") && mensagem[1].endsWith(">")) {
+            String membroId = mensagem[2].replaceAll("[^0-9]", "");
+            cargo = Objects.requireNonNull(ygd).getRoleById(membroId);
+        } else {
+            cargo = Objects.requireNonNull(ygd).getRoleById(mensagem[2]);
+        }
+        return cargo;
+    }
+
     public static User obterUser(String[] mensagem) {
         User user;
         System.out.println("id adquirido: " + mensagem[1]);
@@ -253,5 +264,21 @@ public class Functions
                 .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
 
         Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
+    }
+
+    public static boolean temCargoMaisAlto(Member moderador, Member membro) {
+        return moderador.getRoles().stream().anyMatch(r -> membro.getRoles().stream().noneMatch(mr -> mr.getPositionRaw() >= r.getPositionRaw()));
+    }
+
+    public static boolean possuiPeloMenosUmCargo(Member membro, List<Role> cargosAlvo) {
+        List<Role> cargosDoMembro = membro.getRoles();
+
+        for (Role cargoAlvo : cargosAlvo) {
+            if (cargosDoMembro.contains(cargoAlvo)) {
+                return true; // O membro possui pelo menos um dos cargos alvo
+            }
+        }
+
+        return false; // O membro não possui nenhum dos cargos alvo
     }
 }

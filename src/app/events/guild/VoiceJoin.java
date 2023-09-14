@@ -36,6 +36,7 @@ public class VoiceJoin extends ListenerAdapter {
                     Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
                 }
             }
+
         }
     }
 }

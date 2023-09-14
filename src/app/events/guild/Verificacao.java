@@ -66,96 +66,93 @@ public class Verificacao extends ListenerAdapter
 
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
-        Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
-        Button verificcado = Button.success("verificacaoaceita", "Verificação aceita").asDisabled();
-        Button negado = Button.danger("verificacaonegada", "Verificação negada").asDisabled();
-        Button tempo = Button.secondary("verificacaotempo", "Verificação temporária").asDisabled();
+        if (event.getMessage().isFromGuild()) {
+            Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
+            Button verificcado = Button.success("verificacaoaceita", "Verificação aceita").asDisabled();
+            Button negado = Button.danger("verificacaonegada", "Verificação negada").asDisabled();
+            Button tempo = Button.secondary("verificacaotempo", "Verificação temporária").asDisabled();
 
-        List<Message> mensagens = canalVerificacao.getHistory().retrievePast(100).complete();
+            List<Message> mensagens = canalVerificacao.getHistory().retrievePast(100).complete();
 
-        if (event.getButton().getId().equals("aceitarverificacao"))
-        {
-            EmbedBuilder verificado = new EmbedBuilder();
-            verificado
-                    .setTitle(membro.getUser().getName())
-                    .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " +membro.getUser().getAsMention() + " foi verificado.");
-            String bannerURL = getBanner(membro.getUser().getId());
-            if (bannerURL != null) {
-                verificado.setImage(bannerURL);
-            }
-            verificado.setColor(Color.green);
-            verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " aceitou a verificação");
-
-            event.getMessage().editMessage(" ").queue();
-            event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(verificcado).queue();
-            event.deferEdit().queue();
-
-            for (Message mensagem : mensagens) {
-                if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().reason("Verificação").queue();
+            if (event.getButton().getId().equals("aceitarverificacao")) {
+                EmbedBuilder verificado = new EmbedBuilder();
+                verificado
+                        .setTitle(membro.getUser().getName())
+                        .setThumbnail(membro.getUser().getAvatarUrl())
+                        .setDescription("O membro " + membro.getUser().getAsMention() + " foi verificado.");
+                String bannerURL = getBanner(membro.getUser().getId());
+                if (bannerURL != null) {
+                    verificado.setImage(bannerURL);
                 }
-            }
-            ygd.addRoleToMember(membro, cargoVerificado).reason("Membro foi verificado").queue();
-            bancoLocal("verificados");
-            salvarIdDoUsuario("verificados", membro.getId());
-        }
-        if (event.getButton().getId().equals("negarverificacao"))
-        {
-            EmbedBuilder verificado = new EmbedBuilder();
-            verificado
-                    .setTitle(membro.getUser().getName())
-                    .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " + membro.getUser().getAsMention() + " teve sua verificação NEGADA.");
-            String bannerURL = getBanner(membro.getUser().getId());
-            if (bannerURL != null) {
-                verificado.setImage(bannerURL);
-            }
-            verificado.setColor(Color.red);
-            verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " negou a verificação");
+                verificado.setColor(Color.green);
+                verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " aceitou a verificação");
 
-            for (Message mensagem : mensagens) {
-                if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().reason("Verificação").queue();
+                event.getMessage().editMessage(" ").queue();
+                event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(verificcado).queue();
+                event.deferEdit().queue();
+
+                for (Message mensagem : mensagens) {
+                    if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
+                        mensagem.delete().reason("Verificação").queue();
+                    }
                 }
+                ygd.addRoleToMember(membro, cargoVerificado).reason("Membro foi verificado").queue();
+                bancoLocal("verificados");
+                salvarIdDoUsuario("verificados", membro.getId());
             }
-            event.getMessage().editMessage(" ").queue();
-            event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(negado).queue();
-
-            canalVerificacao.upsertPermissionOverride(membro).deny(Permission.MESSAGE_SEND).reason("Verificação negada").queue();
-
-
-            event.deferEdit().queue();
-
-        }
-        if (event.getButton().getId().equals("aceitartempo"))
-        {
-            event.deferEdit().queue();
-
-            EmbedBuilder verificado = new EmbedBuilder();
-            verificado
-                    .setTitle(membro.getUser().getName())
-                    .setThumbnail(membro.getUser().getAvatarUrl())
-                    .setDescription("O membro " + membro.getUser().getAsMention() + " foi aceito temporariamente no servidor.");
-            String bannerURL = getBanner(membro.getUser().getId());
-            if (bannerURL != null) {
-                verificado.setImage(bannerURL);
-            }
-            verificado.setColor(Color.gray);
-            verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " aceitou temporariamente o membro");
-
-            event.getMessage().editMessage(" ").queue();
-            event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(tempo).queue();
-
-            for (Message mensagem : mensagens) {
-                if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
-                    mensagem.delete().reason("Verificação").queue();
+            if (event.getButton().getId().equals("negarverificacao")) {
+                EmbedBuilder verificado = new EmbedBuilder();
+                verificado
+                        .setTitle(membro.getUser().getName())
+                        .setThumbnail(membro.getUser().getAvatarUrl())
+                        .setDescription("O membro " + membro.getUser().getAsMention() + " teve sua verificação NEGADA.");
+                String bannerURL = getBanner(membro.getUser().getId());
+                if (bannerURL != null) {
+                    verificado.setImage(bannerURL);
                 }
+                verificado.setColor(Color.red);
+                verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " negou a verificação");
+
+                for (Message mensagem : mensagens) {
+                    if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
+                        mensagem.delete().reason("Verificação").queue();
+                    }
+                }
+                event.getMessage().editMessage(" ").queue();
+                event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(negado).queue();
+
+                canalVerificacao.upsertPermissionOverride(membro).deny(Permission.MESSAGE_SEND).reason("Verificação negada").queue();
+
+
+                event.deferEdit().queue();
+
             }
+            if (event.getButton().getId().equals("aceitartempo")) {
+                event.deferEdit().queue();
 
-            ygd.addRoleToMember(membro, cargoTemporario).queue();
+                EmbedBuilder verificado = new EmbedBuilder();
+                verificado
+                        .setTitle(membro.getUser().getName())
+                        .setThumbnail(membro.getUser().getAvatarUrl())
+                        .setDescription("O membro " + membro.getUser().getAsMention() + " foi aceito temporariamente no servidor.");
+                String bannerURL = getBanner(membro.getUser().getId());
+                if (bannerURL != null) {
+                    verificado.setImage(bannerURL);
+                }
+                verificado.setColor(Color.gray);
+                verificado.setFooter(event.getMember().getEffectiveName() + " | " + event.getMember().getId() + " aceitou temporariamente o membro");
+
+                event.getMessage().editMessage(" ").queue();
+                event.getMessage().editMessageEmbeds(verificado.build()).setActionRow(tempo).queue();
+
+                for (Message mensagem : mensagens) {
+                    if (Objects.requireNonNull(mensagem.getMember()).equals(membro)) {
+                        mensagem.delete().reason("Verificação").queue();
+                    }
+                }
+
+                ygd.addRoleToMember(membro, cargoTemporario).queue();
+            }
         }
-
-
     }
 }

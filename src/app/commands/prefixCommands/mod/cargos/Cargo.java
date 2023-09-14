@@ -1,4 +1,4 @@
-package app.commands.prefixCommands.mod;
+package app.commands.prefixCommands.mod.cargos;
 
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -14,7 +14,7 @@ public class Cargo extends ListenerAdapter {
 
         String[] mensagem = event.getMessage().getContentRaw().split(" ");
 
-        if (mensagem[0].equalsIgnoreCase(prefixo + "cargo")) {
+        if (mensagem[0].equalsIgnoreCase(prefixo + "listacargo")) {
             Role cargo;
             if (mensagem[1].startsWith("<@&") && mensagem[1].endsWith(">")) {
                 String cargoId = mensagem[1].substring(3, mensagem[1].length() - 1);
@@ -26,8 +26,5 @@ public class Cargo extends ListenerAdapter {
             event.getChannel().sendMessage(marcarCargo(cargo)).queue();
 
         }
-
-
     }
-
 }

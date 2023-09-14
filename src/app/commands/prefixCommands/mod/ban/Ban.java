@@ -1,21 +1,24 @@
 package app.commands.prefixCommands.mod.ban;
 
+import app.statics.cargos.Perms;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 import static app.statics.Basics.prefixo;
 import static app.statics.Basics.ygd;
 import static app.statics.Functions.*;
 import static app.statics.canais.Logs.logBanimentos;
-import static app.statics.cargos.Perms.tresEstrelas;
 
-public class Ban extends ListenerAdapter {
+
+public class Ban extends ListenerAdapter implements Perms {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -23,8 +26,10 @@ public class Ban extends ListenerAdapter {
         String mensagemInteira = event.getMessage().getContentRaw();
         String motivo = " ";
         int idLength;
+
+        List<Role> cargosDePermissao = Perms.getPermBan();
         if (mensagem[0].equalsIgnoreCase(prefixo + "ban")) {
-            if (event.getMember().getPermissions().contains(Permission.BAN_MEMBERS) || event.getMember().getRoles().contains(tresEstrelas)) {
+            if (event.getMember().getPermissions().contains(Permission.BAN_MEMBERS) || possuiPeloMenosUmCargo(event.getMember(), cargosDePermissao)) {
                 EmbedBuilder embedBanimento = new EmbedBuilder();
 
                 idLength = mensagem[1].length();
