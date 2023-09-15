@@ -62,7 +62,6 @@ public class Verificacao extends ListenerAdapter
     @Override
     public void onButtonInteraction(ButtonInteractionEvent event) {
         if (event.getMessage().isFromGuild()) {
-            Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
             Button verificcado = Button.success("verificacaoaceita", "Verificação aceita").asDisabled();
             Button negado = Button.danger("verificacaonegada", "Verificação negada").asDisabled();
             Button tempo = Button.secondary("verificacaotempo", "Verificação temporária").asDisabled();
@@ -70,6 +69,7 @@ public class Verificacao extends ListenerAdapter
             List<Message> mensagens = canalVerificacao.getHistory().retrievePast(100).complete();
 
             if (event.getButton().getId().equals("aceitarverificacao")) {
+                Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
                 EmbedBuilder verificado = new EmbedBuilder();
                 verificado
                         .setTitle(membro.getUser().getName())
@@ -96,6 +96,8 @@ public class Verificacao extends ListenerAdapter
                 salvarIdDoUsuario("verificados", membro.getId());
             }
             if (event.getButton().getId().equals("negarverificacao")) {
+                Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
+
                 EmbedBuilder verificado = new EmbedBuilder();
                 verificado
                         .setTitle(membro.getUser().getName())
@@ -123,6 +125,8 @@ public class Verificacao extends ListenerAdapter
 
             }
             if (event.getButton().getId().equals("aceitartempo")) {
+                Member membro = ygd.getMemberById(event.getMessage().getContentRaw());
+
                 event.deferEdit().queue();
 
                 EmbedBuilder verificado = new EmbedBuilder();

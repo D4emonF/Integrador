@@ -2,6 +2,7 @@ package app;
 
 import app.commands.mannagers.MessageReceived;
 import app.commands.mannagers.SlashCommand;
+import app.commands.prefixCommands.embeds.VerificacaoInstagram;
 import app.commands.prefixCommands.embeds.VerificationEmbed;
 import app.commands.prefixCommands.misc.Afk;
 import app.commands.prefixCommands.misc.Roleta;
@@ -13,6 +14,7 @@ import app.commands.prefixCommands.mod.ban.UnBan;
 import app.commands.prefixCommands.mod.cargos.AddCargo;
 import app.commands.prefixCommands.mod.cargos.Cargo;
 import app.commands.prefixCommands.mod.cargos.RemoveCargo;
+import app.commands.prefixCommands.mod.social.TicketVerificacao;
 import app.commands.prefixCommands.mod.social.Verificar;
 import app.commands.slash.guild.EmbedCreator;
 import app.commands.slash.misc.EmojiInfo;
@@ -61,6 +63,8 @@ public class App {
         jda.addEventListener(new Instagram());
         jda.addEventListener(new Soco());
         jda.addEventListener(new Verificar());
+        jda.addEventListener(new VerificacaoInstagram());
+        jda.addEventListener(new TicketVerificacao());
 
 
         jda.awaitReady();

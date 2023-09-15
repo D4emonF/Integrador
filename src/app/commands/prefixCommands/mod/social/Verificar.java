@@ -65,12 +65,15 @@ public class Verificar extends ListenerAdapter {
                                 EmbedBuilder canalDeVoz = new EmbedBuilder();
                                 canalDeVoz.setDescription("> Você deve estar no mesmo canal de voz que o membro a ser verificado!")
                                         .setColor(Color.red);
+                                event.getChannel().sendMessage("").setEmbeds(canalDeVoz.build()).queue();
                             }
 
                         } else {
                             EmbedBuilder canalDeVoz = new EmbedBuilder();
                             canalDeVoz.setDescription("> O membro a ser verificado deve estar em um canal de voz para ser verificado!")
                                     .setColor(Color.red);
+                            event.getChannel().sendMessage("").setEmbeds(canalDeVoz.build()).queue();
+
                         }
 
 
@@ -78,6 +81,9 @@ public class Verificar extends ListenerAdapter {
                         EmbedBuilder canalDeVoz = new EmbedBuilder();
                         canalDeVoz.setDescription("> Você deve estar em um canal de voz para executar esse comando!")
                                 .setColor(Color.red);
+
+                        event.getChannel().sendMessage("").setEmbeds(canalDeVoz.build()).queue();
+
                     }
 
                 } else {
