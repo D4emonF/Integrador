@@ -24,8 +24,9 @@ public class VerificacaoInstagram extends ListenerAdapter {
                     .setColor(cuttySark);
 
 
-            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefixo + "evqs"))
+            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefixo + "evqs")){
             canalVerifiquese.sendMessage("").setEmbeds(verificacao.build()).setActionRow(ticket).queue();
+            }
         }
     }
 }

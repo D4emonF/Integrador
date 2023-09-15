@@ -23,6 +23,9 @@ import app.events.bot.OnReady;
 import app.events.functions.AutoClear;
 import app.events.functions.misc.Instagram;
 import app.events.guild.*;
+import app.protecoes.BanNoDedo;
+import app.protecoes.Cargos;
+import app.protecoes.UrlSaver;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -65,6 +68,9 @@ public class App {
         jda.addEventListener(new Verificar());
         jda.addEventListener(new VerificacaoInstagram());
         jda.addEventListener(new TicketVerificacao());
+        jda.addEventListener(new BanNoDedo());
+        jda.addEventListener(new Cargos());
+        jda.addEventListener(new UrlSaver());
 
 
         jda.awaitReady();
