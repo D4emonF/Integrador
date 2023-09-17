@@ -18,6 +18,7 @@ import app.commands.prefixCommands.mod.cargos.RemoveCargo;
 import app.commands.prefixCommands.mod.social.TicketVerificacao;
 import app.commands.prefixCommands.mod.social.Verificar;
 import app.commands.prefixCommands.vips.Addvip;
+import app.commands.prefixCommands.vips.CallView;
 import app.commands.prefixCommands.vips.RemoveVip;
 import app.commands.prefixCommands.vips.Vip;
 import app.commands.slash.guild.EmbedCreator;
@@ -86,6 +87,7 @@ public class App {
         jda.addEventListener(new Vip());
         jda.addEventListener(new Addvip());
         jda.addEventListener(new RemoveVip());
+        jda.addEventListener(new CallView());
 
 
         jda.awaitReady();

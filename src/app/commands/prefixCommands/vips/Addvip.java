@@ -20,9 +20,10 @@ public class Addvip extends ListenerAdapter {
         String mensagem = event.getMessage().getContentRaw();
         Member vip = event.getMember();
         String cargoVip = "cargoV" + vip.getId();
-        Member membro = ygd.getMemberById(mensagem.replaceAll("[^0-9]", ""));;
 
         if (mensagem.toLowerCase().startsWith(prefixo + "addvip")) {
+            Member membro = ygd.getMemberById(mensagem.replaceAll("[^0-9]", ""));;
+
             if (possuiPeloMenosUmCargo(vip, getHierarquia())) {
                 if (existeArquivo(cargoVip)){
                     ygd.addRoleToMember(membro, ygd.getRoleById(lerConteudoArquivo(cargoVip))).queue();

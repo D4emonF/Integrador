@@ -21,9 +21,10 @@ public class RemoveVip extends ListenerAdapter {
         String mensagem = event.getMessage().getContentRaw();
         Member vip = event.getMember();
         String cargoVip = "cargoV" + vip.getId();
-        Member membro = ygd.getMemberById(mensagem.replaceAll("[^0-9]", ""));;
+
 
         if (mensagem.toLowerCase().startsWith(prefixo + "removervip") || mensagem.toLowerCase().startsWith(prefixo + "removevip")) {
+            Member membro = ygd.getMemberById(mensagem.replaceAll("[^0-9]", ""));
             if (possuiPeloMenosUmCargo(vip, getHierarquia())) {
                 if (existeArquivo(cargoVip)){
                     ygd.removeRoleFromMember(membro, ygd.getRoleById(lerConteudoArquivo(cargoVip))).queue();
