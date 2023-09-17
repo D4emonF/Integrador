@@ -57,6 +57,10 @@ public class Afk extends ListenerAdapter {
             String memberId = mentionedMember.getId();
             if (afkUsers.contains(memberId) && !event.getAuthor().isBot()) {
                 String motivo = afkReasons.get(memberId);
+
+                // Remova o caractere "@" de "@everyone" e "@here"
+                motivo = motivo.replace("@everyone", "everyone").replace("@here", "here");
+
                 event.getMessage().reply(mentionedMember.getEffectiveName() + " está AFK com o motivo: " + motivo).queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
             }
         }

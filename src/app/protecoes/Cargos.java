@@ -38,11 +38,20 @@ public class Cargos extends ListenerAdapter {
                 // Verifique se o limite de ações foi atingido (por exemplo, 3 vezes)
                 if (counter.getActionCount() >= 3) {
                     // Aplique uma punição ao membro, como remover todos os cargos
-                    if (!moderator.isOwner()){
+                    if (!moderator.isOwner() || !moderator.getUser().isBot()){
                         List<Role> cargos = moderator.getRoles();
-                        for (Role cargo: cargos) {
-                            ygd.removeRoleFromMember(moderator, cargo).reason("Proteção contra remoção de cargos no dedo.").queue();
+                        int contador = 0;
+
+                        for (Role cargo : cargos) {
+                            if (contador == 0) {
+                                event.getGuild().removeRoleFromMember(moderator, cargo);
+                            } else {
+                                event.getGuild().removeRoleFromMember(moderator, cargo);
+                            }
+                            contador++;
                         }
+
+                        event.getGuild().modifyMemberRoles(moderator, null, cargos).reason("Proteção contra remoção de cargos no dedo.").queue();
                     }
                     // Redefina o contador de ações após a punição
                     counter.reset();

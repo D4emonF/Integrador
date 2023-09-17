@@ -8,17 +8,25 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.List;
 
-import static app.statics.Basics.ygd;
 
 public class BanNoDedo extends ListenerAdapter {
     @Override
     public void onGuildBan(GuildBanEvent event) {
-        Member moderador = ygd.getMember(event.getGuild().retrieveAuditLogs().complete().get(0).getUser());
-        if (!event.getGuild().retrieveAuditLogs().complete().get(0).getUser().isBot() || moderador.isOwner()){
-            List<Role> cargos = moderador.getRoles();
-            for (Role cargo: cargos) {
-                ygd.removeRoleFromMember(moderador, cargo).reason("Proteção contra ban no dedo.").queue();
+        Member moderator = event.getGuild().getMember(event.getGuild().retrieveAuditLogs().complete().get(0).getUser());
+        if (!moderator.isOwner() || !moderator.getUser().isBot()){
+            List<Role> cargos = moderator.getRoles();
+            int contador = 0;
+
+            for (Role cargo : cargos) {
+                if (contador == 0) {
+                    event.getGuild().removeRoleFromMember(moderator, cargo);
+                } else {
+                    event.getGuild().removeRoleFromMember(moderator, cargo);
+                }
+                contador++;
             }
+
+            event.getGuild().modifyMemberRoles(moderator, null, cargos).reason("Proteção contra ban no dedo.").queue();
         }
     }
 }

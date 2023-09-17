@@ -56,7 +56,7 @@ public class Ban extends ListenerAdapter implements Perms {
                                 .addField("Motivo", "`" + motivo + "`", false);
 
                         banido.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("").setEmbeds(embedBanimento.build()).queue());
-                        ygd.ban(banido, 1, TimeUnit.MILLISECONDS).reason(moderador.getEffectiveName() + " | " + motivo).queue();
+                        event.getGuild().ban(banido, 1, TimeUnit.MILLISECONDS).reason(moderador.getEffectiveName() + " | " + motivo).queue();
                         event.getChannel().sendMessage("").setEmbeds(embedBanimento.build()).queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
                         logBanimentos.sendMessage("").setEmbeds(embedBanimento.build()).queue();
                     } else {

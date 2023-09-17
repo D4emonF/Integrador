@@ -46,7 +46,7 @@ public class TicketVerificacao extends ListenerAdapter {
                                 .grant(Permission.MESSAGE_SEND)
                                 .grant(Permission.MESSAGE_ATTACH_FILES)
                                 .queue();
-                        textChannel.upsertPermissionOverride(ygd.getPublicRole())
+                        textChannel.upsertPermissionOverride(event.getGuild().getPublicRole())
                                 .deny(Permission.VIEW_CHANNEL)
                                 .queue();
                         textChannel.upsertPermissionOverride(cargoTemporario)
@@ -95,7 +95,7 @@ public class TicketVerificacao extends ListenerAdapter {
                 Button finalizarTicket = Button.danger("finalizarticket", "Fechar ticket");
 
                 String id = event.getChannel().getName().substring(3);
-                Member membro = ygd.getMemberById(id);
+                Member membro = event.getGuild().getMemberById(id);
 
                 event.getChannel().asTextChannel().upsertPermissionOverride(event.getMember()).grant(Permission.VIEW_CHANNEL).reason("Verificação aceita");
                 event.getChannel().asTextChannel().upsertPermissionOverride(membro).grant(Permission.VIEW_CHANNEL).reason("Verificação aceita");
@@ -134,7 +134,7 @@ public class TicketVerificacao extends ListenerAdapter {
                         Category categoria = event.getChannel().asTextChannel().getParentCategory();
 
                         String id = event.getChannel().getName().substring(3);
-                        Member membro = ygd.getMemberById(id);
+                        Member membro = event.getGuild().getMemberById(id);
 
                         event.getGuild().createVoiceChannel(nome, categoria).queue(voiceChannel -> {
                             voiceChannel.getManager().setUserLimit(2).queue();
@@ -147,7 +147,7 @@ public class TicketVerificacao extends ListenerAdapter {
                                     .grant(Permission.VOICE_MUTE_OTHERS)
                                     .grant(Permission.VOICE_MOVE_OTHERS)
                                     .queue();
-                            voiceChannel.upsertPermissionOverride(ygd.getPublicRole())
+                            voiceChannel.upsertPermissionOverride(event.getGuild().getPublicRole())
                                     .deny(Permission.VIEW_CHANNEL)
                                     .queue();
                             voiceChannel.upsertPermissionOverride(cargoTemporario)

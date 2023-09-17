@@ -19,7 +19,7 @@ public class MemberJoin extends ListenerAdapter {
         carregarIdsDosUsuarios("verificados", ids);
         if (ids.contains(event.getMember().getId()))
         {
-            ygd.addRoleToMember(event.getMember(), cargoMembro).queue();
+            ygd.addRoleToMember(event.getMember(), cargoMembro).reason("Auto Role.").queue();
         }
         else
         {
