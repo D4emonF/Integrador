@@ -25,7 +25,7 @@ import app.commands.slash.misc.Sorteio;
 import app.events.bot.OnGuildReady;
 import app.events.bot.OnReady;
 import app.events.functions.AutoClear;
-import app.events.functions.misc.Instagram;
+import app.events.functions.social.Instagram;
 import app.events.guild.*;
 import app.protecoes.BanNoDedo;
 import app.protecoes.Cargos;

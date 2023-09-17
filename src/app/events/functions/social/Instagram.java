@@ -1,4 +1,4 @@
-package app.events.functions.misc;
+package app.events.functions.social;
 
 import java.io.*;
 import java.util.*;
@@ -6,7 +6,6 @@ import kotlin.Pair;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -16,6 +15,8 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import static app.statics.Functions.*;
 import static app.App.jda;
 import static app.statics.canais.Geral.canalInstagram;
+import static app.statics.cargos.Perms.getPermVerificador;
+import static app.statics.external.ColorPalette.cuttySark;
 
 public class Instagram extends ListenerAdapter {
 
@@ -40,9 +41,9 @@ public class Instagram extends ListenerAdapter {
 
                 event.getMessage().delete().queue();
                 Button like = Button.secondary("instagram", "💖 " + "0");
-                Button likes = Button.secondary("likes", "🤍");
+                Button likes = Button.secondary("likes", "💌");
                 Button comentario = Button.secondary("comentario", "💬" + "0");
-                Button comentariosB = Button.secondary("comentarios", "📑"); // Botão para ver os comentários
+                Button comentariosB = Button.secondary("comentarios", "🔍"); // Botão para ver os comentários
                 EmbedBuilder embedBuilder = new EmbedBuilder();
                 embedBuilder.setDescription(event.getMessage().getContentRaw())
                         .setImage(url);
@@ -50,6 +51,11 @@ public class Instagram extends ListenerAdapter {
 
                 // Inicialize o contador de comentários
                 commentCounts.put(event.getMessage().getId(), 0);
+            }
+            else {
+                if (possuiPeloMenosUmCargo(event.getMember(), getPermVerificador()) || event.getMember().isOwner()){
+                    event.getMessage().delete().queue();
+                }
             }
 
         }
@@ -102,14 +108,21 @@ public class Instagram extends ListenerAdapter {
             idsLikes = lerIds(arquivoLikes);
 
             StringBuilder sb = new StringBuilder();
-            sb.append("Likes da publicação: \n");
             for (String id : idsLikes) {
                 sb.append("\n<@").append(id).append(">");
             }
-            event.reply(sb.toString()).setEphemeral(true).queue();
+            EmbedBuilder likes = new EmbedBuilder();
+
+            likes
+                    .setColor(cuttySark)
+                    .setTitle("Likes da publicação")
+                    .setDescription(sb);
+            event.reply("").setEmbeds(likes.build()).setEphemeral(true).queue();
         }
 
         if (event.getButton().getId().equals("comentario")) {
+
+
             Message mensagemInicial = event.getMessage();
             idMensagem = event.getMessage().getId();
             arquivoComentarios = "comentarios" + idMensagem;
@@ -161,7 +174,13 @@ public class Instagram extends ListenerAdapter {
                 for (Pair<String, String> comentarioS : comentarios) {
                     sb.append("<@").append(comentarioS.getFirst()).append(">: ").append(comentarioS.getSecond()).append("\n");
                 }
-                event.reply(sb.toString()).setEphemeral(true).queue();
+                EmbedBuilder comentarios = new EmbedBuilder();
+
+                comentarios
+                        .setColor(cuttySark)
+                        .setTitle("Comentários da publicação")
+                        .setDescription(sb);
+                event.reply("").setEmbeds(comentarios.build()).setEphemeral(true).queue();
             } else {
                 event.reply("Não há comentários nesta publicação.").setEphemeral(true).queue();
             }
