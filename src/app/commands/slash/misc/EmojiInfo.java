@@ -33,7 +33,7 @@ public class EmojiInfo extends ListenerAdapter {
                             .setTitle(emojiString + " Informações do emoji")
                             .addField("<:cinza_hashtag:1146460596917784667> Nome do emoji", emojiName, true)
                             .addField("<:preto_id:1141064862273917028> Id do emoji", id, true)
-                            .addField("<:cinza_chat:1146459421380190259> Menção", "```" + emojiString + "```", true)
+                            .addField("<:cinza_chat:1146459421380190259> Menção", "`" + emojiString + "`", false)
                             .setThumbnail(emojiUrl)
                             .setColor(monteCarlo);
                     event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();
@@ -56,7 +56,7 @@ public class EmojiInfo extends ListenerAdapter {
                         .setTitle(emojiString + " Informações do emoji")
                         .addField("<:cinza_hashtag:1146460596917784667> Nome do emoji", emojiName, true)
                         .addField("<:preto_id:1141064862273917028> Id do emoji", id, true)
-                        .addField("<:cinza_chat:1146459421380190259> Menção", "```" + emojiString + "```", true)
+                        .addField("<:cinza_chat:1146459421380190259> Menção", "`" + emojiString + "`", false)
                         .setThumbnail(emojiUrl)
                         .setColor(monteCarlo);
                 event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();

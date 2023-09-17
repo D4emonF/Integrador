@@ -27,10 +27,24 @@ public class SlashCommand extends ListenerAdapter
 
         OptionData emoji = new OptionData(OptionType.STRING, "emoji", "Emoji ou o ID do emoji a ser procurado", true);
 
+        //Sorteio
+        OptionData sorteado = new OptionData(OptionType.STRING, "item", "O que será sorteado", true);
+        OptionData duracao = new OptionData(OptionType.STRING, "duração", "Tempo de duração. Ex: 15m (\"s\" para segundos, \"m\" para minutos, \"h\" para horas, \"d \"para dias)", true);
+        OptionData cSorteio = new OptionData(OptionType.CHANNEL, "canalsorteio", "Canal do sorteio (deve ser canal de texto)");
+        OptionData cargoSorteio = new OptionData(OptionType.ROLE, "cargosorteio", "Cargo para marcar");
+
+        // Opções do comando "infouser"
+        OptionData infouser = new OptionData(OptionType.USER, "user", "Usuário a ser consultado", false);
 
         //Adiciona os slashs
+        commandData.add(Commands.slash("ping", "Responde com o ping do bot"));
+        commandData.add(Commands.slash("sorteio", "Cria um novo sorteio").addOptions(sorteado, duracao, descricao, cSorteio, cargoSorteio));
         commandData.add(Commands.slash("criarembed", "Cria uma mensagem embed.").addOptions(descricao,titulo, cor, footer, imagem, thumbnail, canal));
         commandData.add(Commands.slash("emojiinfo", "Busca informações sobre um emoji").addOptions(emoji));
+        commandData.add(Commands.slash("boosters", "Mostra os membros dando boost no servidor"));
+        commandData.add(Commands.slash("infouser", "Informações sobre um usuário").addOptions(infouser));
+
+
 
         //Atualiza toda vez que o bot reinicia
         event.getGuild().updateCommands().addCommands(commandData).queue();

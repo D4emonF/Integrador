@@ -4,8 +4,10 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
 import java.awt.*;
 import java.time.LocalDateTime;
@@ -47,6 +49,22 @@ public class UserInfo extends ListenerAdapter {
                     event.getChannel().sendMessage("").setEmbeds(msgEmbed(member).build()).queue();
                 }
             }
+        }
+    }
+
+    @Override
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        if (event.getName().equalsIgnoreCase("infouser")){
+
+            OptionMapping opcao1 = event.getOption("user");
+
+            if (opcao1 != null){
+                member = opcao1.getAsMember();
+            }else{
+                member = event.getMember();
+            }
+
+            event.reply("").setEphemeral(true).setEmbeds(msgEmbed(member).build()).queue();
         }
     }
 
