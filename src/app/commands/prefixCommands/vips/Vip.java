@@ -156,8 +156,6 @@ public class Vip extends ListenerAdapter {
                                             VoiceChannel canalv = ygd.getVoiceChannelById(lerConteudoArquivo(canalVip));
                                             canalv.upsertPermissionOverride(role).grant(Permission.VIEW_CHANNEL).grant(Permission.VOICE_CONNECT).queue();
                                         }
-                                        ygd.modifyRolePositions().selectPosition(role).moveTo(cargoVerificado.getPositionRaw()+1).queue();
-
                                     });
                                 }
 
