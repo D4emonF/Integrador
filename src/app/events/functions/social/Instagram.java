@@ -53,7 +53,7 @@ public class Instagram extends ListenerAdapter {
                 commentCounts.put(event.getMessage().getId(), 0);
             }
             else {
-                if (possuiPeloMenosUmCargo(event.getMember(), getPermVerificador()) || event.getMember().isOwner()){
+                if (!possuiPeloMenosUmCargo(event.getMember(), getPermVerificador()) || !event.getMember().isOwner()){
                     event.getMessage().delete().queue();
                 }
             }
