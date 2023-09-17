@@ -112,6 +112,11 @@ public class Functions
         }
     }
 
+    public static Boolean existeArquivo(String nomeArquivo) {
+        File file = new File(nomeArquivo + ".txt");
+        return file.exists();
+    }
+
     // Método para salvar o ID de um usuário em um arquivo
     public static void salvarIdDoUsuario(String nomeArquivo, String id) {
         List<String> ids = new ArrayList<>();
@@ -131,6 +136,22 @@ public class Functions
             }
         }
     }
+    public static void salvarConteudo(String nomeArquivo, String conteudo) {
+        limparConteudoArquivo(nomeArquivo);
+            try {
+                // Abrir o arquivo em modo de gravação
+                FileWriter writer = new FileWriter(nomeArquivo + ".txt", true);
+
+                // Adicionar o ID do usuário no final do arquivo
+                writer.write(conteudo);
+
+                // Fechar o arquivo
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     // Método para esvaziar um arquivo local
     public static void limparConteudoArquivo(String nomeArquivo) {
@@ -166,9 +187,15 @@ public class Functions
 
             BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo));
             String linha;
+            int i=0;
 
             while ((linha = leitor.readLine()) != null) {
-                conteudo.append(linha).append("\n");
+                if (i == 0) {
+                    conteudo.append(linha);
+                }else {
+                    conteudo.append("\n").append(linha);
+                }
+                i++;
             }
 
             leitor.close();

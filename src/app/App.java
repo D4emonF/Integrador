@@ -17,6 +17,9 @@ import app.commands.prefixCommands.mod.cargos.Cargo;
 import app.commands.prefixCommands.mod.cargos.RemoveCargo;
 import app.commands.prefixCommands.mod.social.TicketVerificacao;
 import app.commands.prefixCommands.mod.social.Verificar;
+import app.commands.prefixCommands.vips.Addvip;
+import app.commands.prefixCommands.vips.RemoveVip;
+import app.commands.prefixCommands.vips.Vip;
 import app.commands.slash.guild.EmbedCreator;
 import app.commands.slash.misc.Boosters;
 import app.commands.slash.misc.EmojiInfo;
@@ -38,6 +41,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import java.util.EnumSet;
 
 import static app.statics.Basics.token;
+import static app.statics.cargos.Funcionais.cargoVerificado;
 
 public class App {
 
@@ -79,6 +83,9 @@ public class App {
         jda.addEventListener(new Ping());
         jda.addEventListener(new Boosters());
         jda.addEventListener(new UserInfo());
+        jda.addEventListener(new Vip());
+        jda.addEventListener(new Addvip());
+        jda.addEventListener(new RemoveVip());
 
 
         jda.awaitReady();

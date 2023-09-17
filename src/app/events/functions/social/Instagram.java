@@ -55,6 +55,7 @@ public class Instagram extends ListenerAdapter {
             else {
                 if (!possuiPeloMenosUmCargo(event.getMember(), getPermVerificador()) || !event.getMember().isOwner()){
                     event.getMessage().delete().queue();
+
                 }
             }
 

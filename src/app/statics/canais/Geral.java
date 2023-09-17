@@ -1,5 +1,6 @@
 package app.statics.canais;
 
+import net.dv8tion.jda.api.entities.channel.concrete.Category;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 
@@ -11,4 +12,5 @@ public interface Geral
     TextChannel canalComandos = ygd.getTextChannelById("1145501822669299732");
     VoiceChannel canalLucius = ygd.getVoiceChannelById("1145874795829936198");
     TextChannel canalInstagram = ygd.getTextChannelById("1151663643998564475");
+    Category categoriaVips = ygd.getCategoryById("1152993108879999137");
 }

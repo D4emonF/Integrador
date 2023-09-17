@@ -10,10 +10,13 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.statics.cargos.Funcionais.cargoVerificado;
+
 public class SlashCommand extends ListenerAdapter
 {
     @Override
     public void onGuildReady(GuildReadyEvent event) {
+
         List<CommandData> commandData = new ArrayList<>();
 
         //EmbedCreator

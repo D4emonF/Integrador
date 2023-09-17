@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.EnumSet;
 import java.util.concurrent.TimeUnit;
 
 import static app.App.jda;
@@ -86,12 +87,23 @@ public class UserInfo extends ListenerAdapter {
             apelido = user.getName();
         }
 
+        EnumSet<User.UserFlag> flags = user.getFlags();
+
         userinfo
                 .setColor(Color.decode("#2B2D31"))
                 .setTitle(user.getName())
                 .addField("<:preto_id:1141064862273917028>  ID:", "`" + user.getId() + "`", true)
                 .addField("<:preto_membro:1124563263439507538> Apelido:", apelido, true)
-                .addField("<:preto_calendario:1141067399790088353> Criado em:", "<t:" + gerarTimestamp(tempoCriacao) + "> ("+ "<t:" + gerarTimestamp(tempoCriacao) + ":R>)", true)
+                .addField("<:preto_calendario:1141067399790088353> Criado em:", "<t:" + gerarTimestamp(tempoCriacao) + "> ("+ "<t:" + gerarTimestamp(tempoCriacao) + ":R>)", true);
+
+
+        if (!flags.isEmpty()){
+            for (User.UserFlag flag: flags) {
+                flag.getName();
+            }
+        }
+
+        userinfo
                 .addField("<:preto_calendario:1141067399790088353> Entrou no servidor em:", "<t:" + gerarTimestamp(tempoEntrada) + "> ("+ "<t:" + gerarTimestamp(tempoEntrada) + ":R>)", true);
 
 
