@@ -351,7 +351,7 @@ public class Vip extends ListenerAdapter {
                 } else {
                     EmbedBuilder outroCanal = new EmbedBuilder();
                     outroCanal.setDescription("**Esse comando só pode ser utilizado em**:\n> " + canalComandos.getAsMention() + " ou " + canalComandosVip.getAsMention()).setColor(Color.red);
-                    event.getChannel().sendMessage("").setEmbeds(outroCanal.build()).queue();
+                    event.getChannel().sendMessage("").setEmbeds(outroCanal.build()).queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
                 }
             } else {
                 EmbedBuilder semVip = new EmbedBuilder();
