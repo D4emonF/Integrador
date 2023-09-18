@@ -45,7 +45,7 @@ public class Vip extends ListenerAdapter {
         String canalVip = "canalV" + membro.getId();
         if (mensagem.equalsIgnoreCase(prefixo + "vip")) {
             if (possuiPeloMenosUmCargo(membro, getHierarquia())) {
-                if (!event.getChannel().equals(canalComandos) || !event.getChannel().equals(canalComandosVip)) {
+                if (event.getChannel().equals(canalComandos) || event.getChannel().equals(canalComandosVip)) {
                     if (!existeArquivo(canalVip) && !existeArquivo(cargoVip)) {
                         EmbedBuilder embedVipInicial = new EmbedBuilder();
 
@@ -348,6 +348,10 @@ public class Vip extends ListenerAdapter {
                         }
                     });
 
+                } else {
+                    EmbedBuilder outroCanal = new EmbedBuilder();
+                    outroCanal.setDescription("**Esse comando só pode ser utilizado em**:\n> " + canalComandos.getAsMention() + " ou " + canalComandosVip.getAsMention()).setColor(Color.red);
+                    event.getChannel().sendMessage("").setEmbeds(outroCanal.build()).queue();
                 }
             } else {
                 EmbedBuilder semVip = new EmbedBuilder();
