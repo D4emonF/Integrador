@@ -7,15 +7,19 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.concurrent.TimeUnit;
 
 import static app.statics.Basics.prefixo;
+import static app.statics.Basics.prefixos;
 import static app.statics.canais.Geral.canalComandos;
+import static app.statics.canais.Geral.canalKosame;
 
 public class AutoClear extends ListenerAdapter {
 
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        if (!event.getMessage().getContentRaw().startsWith(prefixo)) {
+        String[] mensagem = event.getMessage().getContentRaw().split(" ");
+        if (!event.getMessage().getContentRaw().startsWith(prefixo) || prefixos.stream().anyMatch(mensagem[0]::startsWith)) {
             autoClear(event, canalComandos, 30, TimeUnit.SECONDS);
+            autoClear(event, canalKosame, 5, TimeUnit.MINUTES);
         }
 
     }

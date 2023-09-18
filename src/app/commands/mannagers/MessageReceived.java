@@ -3,6 +3,7 @@ package app.commands.mannagers;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.channel.Channel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -13,6 +14,7 @@ import static app.statics.Basics.prefixo;
 import static app.statics.Basics.prefixos;
 import static app.statics.Functions.gerarTimestamp;
 import static app.statics.canais.Logs.logComandos;
+import static app.statics.cargos.Hierarquia.getHierarquia;
 import static app.statics.external.ColorPalette.monteCarlo;
 
 

@@ -8,21 +8,23 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
-import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static app.App.jda;
 import static app.statics.Basics.prefixo;
 import static app.statics.Basics.ygd;
 import static app.statics.Functions.*;
 import static app.statics.canais.Geral.categoriaVips;
+import static app.statics.cargos.Funcionais.cargoTemporario;
 import static app.statics.cargos.Funcionais.cargoVerificado;
 import static app.statics.cargos.Hierarquia.getHierarquia;
 import static app.statics.external.ColorPalette.cuttySark;
@@ -108,7 +110,7 @@ public class Vip extends ListenerAdapter {
                                     });
 
 
-                                    event.deferEdit().queue();
+                                    event.reply("Canal criado, clique novamente para editá-lo").setEphemeral(true).queue();
                                 }
 
                                 event.deferEdit().queue();
@@ -130,8 +132,28 @@ public class Vip extends ListenerAdapter {
                                     public void onButtonInteraction(ButtonInteractionEvent event) {
                                         if (event.getMember().equals(membro)) {
 
+
+
                                             if (Objects.equals(event.getButton().getId(), "voltarmsgvip")) {
-                                                event.getMessage().editMessageEmbeds(msgEmbed).setActionRow(criarCanal, criarCargo, fechar).queue();
+
+                                                StringBuilder sb = new StringBuilder();
+
+                                                if (existeArquivo(cargoVip)) {
+                                                    Role cargov = event.getGuild().getRoleById(lerConteudoArquivo(cargoVip));
+                                                    sb.append("**Cargo:** ").append(cargov.getAsMention());
+                                                } else {
+                                                    sb.append("**Cargo:** não criado");
+                                                }
+                                                if (existeArquivo(canalVip)) {
+                                                    VoiceChannel canal = ygd.getVoiceChannelById(lerConteudoArquivo(canalVip));
+                                                    sb.append("\n**Canal:** ").append(canal.getAsMention());
+                                                } else {
+                                                    sb.append("\n**Canal:** não criado");
+                                                }
+                                                embedVip.setColor(cuttySark).setTitle("Vip " + membro.getEffectiveName());
+                                                embedVip.setDescription(sb);
+
+                                                event.getMessage().editMessageEmbeds(embedVip.build()).setActionRow(criarCanal, criarCargo, fechar).queue();
                                                 event.deferEdit().queue();
                                                 jda.removeEventListener(this);
                                             }
@@ -141,7 +163,6 @@ public class Vip extends ListenerAdapter {
                             }
                             if (Objects.equals(event.getButton().getId(), "cargovip")) {
                                 Role cargo = null;
-                                event.deferEdit().queue();
                                 if (existeArquivo(cargoVip)) {
                                     String temp = lerConteudoArquivo(cargoVip);
                                     if (!temp.isEmpty()) {
@@ -155,9 +176,13 @@ public class Vip extends ListenerAdapter {
                                         if (existeArquivo(canalVip) && !lerConteudoArquivo(canalVip).isEmpty()) {
                                             VoiceChannel canalv = ygd.getVoiceChannelById(lerConteudoArquivo(canalVip));
                                             canalv.upsertPermissionOverride(role).grant(Permission.VIEW_CHANNEL).grant(Permission.VOICE_CONNECT).queue();
+                                            moverCargoParaCima(role, cargoVerificado);
                                         }
+                                        event.getGuild().addRoleToMember(event.getMember(), role).queue();
                                     });
+                                    event.reply("Cargo criado, clique novamente para editá-lo").setEphemeral(true).queue();
                                 }
+
 
                                 MessageEmbed msgEmbed = event.getMessage().getEmbeds().get(0);
                                 EmbedBuilder embedBuilder = new EmbedBuilder();
@@ -171,6 +196,7 @@ public class Vip extends ListenerAdapter {
                                 Button editarEmoji = Button.primary("editaremoji", "Editar emoji");
 
                                 event.getMessage().editMessageEmbeds(embedBuilder.build()).setActionRow(editarNome, editarCor, editarEmoji, voltar).queue();
+                                event.deferEdit().queue();
 
                                 jda.addEventListener(new ListenerAdapter() {
                                     @Override
@@ -178,7 +204,25 @@ public class Vip extends ListenerAdapter {
                                         if (event.getMember().equals(membro)) {
 
                                             if (Objects.equals(event.getButton().getId(), "voltarmsgvip")) {
-                                                event.getMessage().editMessageEmbeds(msgEmbed).setActionRow(criarCanal, criarCargo, fechar).queue();
+
+                                                StringBuilder sb = new StringBuilder();
+
+                                                if (existeArquivo(cargoVip)) {
+                                                    Role cargov = event.getGuild().getRoleById(lerConteudoArquivo(cargoVip));
+                                                    sb.append("**Cargo:** ").append(cargov.getAsMention());
+                                                } else {
+                                                    sb.append("**Cargo:** não criado");
+                                                }
+                                                if (existeArquivo(canalVip)) {
+                                                    VoiceChannel canal = ygd.getVoiceChannelById(lerConteudoArquivo(canalVip));
+                                                    sb.append("\n**Canal:** ").append(canal.getAsMention());
+                                                } else {
+                                                    sb.append("\n**Canal:** não criado");
+                                                }
+                                                embedVip.setColor(cuttySark).setTitle("Vip " + membro.getEffectiveName());
+                                                embedVip.setDescription(sb);
+
+                                                event.getMessage().editMessageEmbeds(embedVip.build()).setActionRow(criarCanal, criarCargo, fechar).queue();
                                                 event.deferEdit().queue();
                                                 jda.removeEventListener(this);
                                             }
@@ -319,6 +363,28 @@ public class Vip extends ListenerAdapter {
         }
     }
 
+    private void moverCargoParaCima(Role cargoMover, Role cargoAlvo) {
+        // Obtenha todos os cargos do servidor
+        List<Role> roles = cargoMover.getGuild().getRoles();
 
+        // Encontre as posições dos cargos
+        int posicaoMover = roles.indexOf(cargoMover);
+        int posicaoAlvo = roles.indexOf(cargoAlvo);
+
+        // Verifique se ambos os cargos existem
+        if (posicaoMover >= 0 && posicaoAlvo >= 0) {
+            // Certifique-se de que a posição de destino seja menor (acima) do que a posição de origem
+            if (posicaoMover < posicaoAlvo) {
+                // Reordene os cargos
+                roles.remove(cargoMover);
+                roles.add(posicaoAlvo, cargoMover);
+
+                // Atualize as posições dos cargos
+                for (int i = 0; i < roles.size(); i++) {
+                    ygd.modifyRolePositions().selectPosition(cargoMover).moveTo(i).queue();
+                }
+            }
+        }
+    }
 }
 
