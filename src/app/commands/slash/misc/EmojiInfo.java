@@ -31,9 +31,9 @@ public class EmojiInfo extends ListenerAdapter {
                     EmbedBuilder embed = new EmbedBuilder();
                     embed
                             .setTitle(emojiString + " Informações do emoji")
-                            .addField("<:cinza_hashtag:1146460596917784667> Nome do emoji", emojiName, true)
+                            .addField("<:cinza_hashtag:1154769641336479814> Nome do emoji", emojiName, true)
                             .addField("<:preto_id:1141064862273917028> Id do emoji", id, true)
-                            .addField("<:cinza_chat:1146459421380190259> Menção", "`" + emojiString + "`", false)
+                            .addField("<:cinza_chat:1154769616543961189> Menção", "`" + emojiString + "`", false)
                             .setThumbnail(emojiUrl)
                             .setColor(monteCarlo);
                     event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();
@@ -41,25 +41,26 @@ public class EmojiInfo extends ListenerAdapter {
             }
             if (emojiString.startsWith("<a:") && emojiString.endsWith(">")) {
 
-            }
-            String[] parts = emojiString.split(":");
-            if (parts.length == 3) {
-                String id = parts[2].substring(0, parts[2].length() - 1);
-                String emojiName = parts[1];
-                String emojiUrl = "https://cdn.discordapp.com/emojis/" + id + ".gif?size=2048";
+
+                String[] parts = emojiString.split(":");
+                if (parts.length == 3) {
+                    String id = parts[2].substring(0, parts[2].length() - 1);
+                    String emojiName = parts[1];
+                    String emojiUrl = "https://cdn.discordapp.com/emojis/" + id + ".gif?size=2048";
 
 
-                Button botao = Button.link(emojiUrl, "Clique aqui para abrir o emoji no navegador");
+                    Button botao = Button.link(emojiUrl, "Clique aqui para abrir o emoji no navegador");
 
-                EmbedBuilder embed = new EmbedBuilder();
-                embed
-                        .setTitle(emojiString + " Informações do emoji")
-                        .addField("<:cinza_hashtag:1146460596917784667> Nome do emoji", emojiName, true)
-                        .addField("<:preto_id:1141064862273917028> Id do emoji", id, true)
-                        .addField("<:cinza_chat:1146459421380190259> Menção", "`" + emojiString + "`", false)
-                        .setThumbnail(emojiUrl)
-                        .setColor(monteCarlo);
-                event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();
+                    EmbedBuilder embed = new EmbedBuilder();
+                    embed
+                            .setTitle(emojiString + " Informações do emoji")
+                            .addField("<:cinza_hashtag:1154769641336479814> Nome do emoji", emojiName, true)
+                            .addField("<:preto_id:1141064862273917028> Id do emoji", id, true)
+                            .addField("<:cinza_chat:1154769616543961189> Menção", "`" + emojiString + "`", false)
+                            .setThumbnail(emojiUrl)
+                            .setColor(monteCarlo);
+                    event.reply("").setEmbeds(embed.build()).setEphemeral(true).setActionRow(botao).queue();
+                }
             }
         }
     }

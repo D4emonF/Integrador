@@ -28,10 +28,10 @@ public class VoiceLeft extends ListenerAdapter
                     LocalDateTime dateTime = LocalDateTime.now();
                     EmbedBuilder embed = new EmbedBuilder()
                             .setColor(Color.red)
-                            .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false)
-                            .setTitle("<:preto_audio:1124562092167540787> | " + "Saiu do canal")
-                            .addField("<:cinza_chat:1146459421380190259> Canal", event.getChannelLeft().getAsMention() + " | `" + event.getChannelLeft().getName()+ "`", true)
-                            .addField("<:preto_calendario:1141067399790088353> Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
+                            .addField("**<:preto_membro:1154843741891338282> Membro:**", memberMention + " `" + memberEffectiveName + "`", false)
+                            .setTitle("<:preto_audio:1154843570528862248> | " + "Saiu do canal")
+                            .addField("<:cinza_chat:1154769616543961189> Canal", event.getChannelLeft().getAsMention() + " | `" + event.getChannelLeft().getName()+ "`", true)
+                            .addField("<:preto_calendario:1154843611020677151> Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
                             .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl());
 
                     Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();

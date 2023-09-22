@@ -11,6 +11,7 @@ import okhttp3.Response;
 
 import java.awt.*;
 import java.io.*;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -284,11 +285,11 @@ public class Functions
         LocalDateTime dateTime = LocalDateTime.now();
         EmbedBuilder embed = new EmbedBuilder()
                 .setColor(color)
-                .setTitle("<:preto_audio:1124562092167540787> | " + title)
+                .setTitle("<:preto_audio:1154843570528862248> | " + title)
                 .setDescription(description)
                 .addField("Hora", "<t:" + gerarTimestamp(dateTime) + ">", false)
                 .setFooter(ygd.getName(), Objects.requireNonNull(ygd).getIconUrl())
-                .addField("**<:preto_membro:1124563263439507538> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
+                .addField("**<:preto_membro:1154843741891338282> Membro:**", memberMention + " `" + memberEffectiveName + "`", false);
 
         Objects.requireNonNull(logTrafego).sendMessage("").setEmbeds(embed.build()).queue();
     }
@@ -307,5 +308,46 @@ public class Functions
         }
 
         return false; // O membro não possui nenhum dos cargos alvo
+    }
+
+    public static File salvaImagem(String link){
+        String sufixo = "";
+        if (link.endsWith(".png?size=2048")){
+            sufixo = ".png";
+        }
+        if (link.endsWith(".gif?size=2048")){
+            sufixo = ".gif";
+        }
+
+
+
+        try {
+            // Crie uma URL com o link do emoji
+            URL url = new URL(link);
+
+            // Abra uma conexão para a URL
+            InputStream inputStream = url.openStream();
+
+            // Crie um arquivo local onde a imagem será salva
+            File outputFile = new File("NovaImagem" + sufixo);
+
+            // Crie um fluxo de saída para escrever os dados no arquivo local
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+
+            // Leia os dados da URL e escreva no arquivo local
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+
+            // Feche os fluxos
+            inputStream.close();
+            outputStream.close();
+            return outputFile;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

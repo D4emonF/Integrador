@@ -61,11 +61,11 @@ public class MessageReceived extends ListenerAdapter {
         EmbedBuilder log = new EmbedBuilder();
         log
                 .setColor(monteCarlo)
-                .setTitle("<:cinza_chat:1146459421380190259> | Comando utilizado")
-                .addField("<:preto_membro:1124563263439507538> Membro", member.getAsMention() + " | `" + member.getId() + "`", true)
-                .addField("<:cinza_hashtag:1146460596917784667> Comando","`" + comando+ "`", true)
-                .addField("<:cinza_chat:1146459421380190259> Canal", canal.getAsMention() + " | `" + canal.getName()+ "`", true)
-                .addField("<:preto_calendario:1141067399790088353> Horario", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">", true)
+                .setTitle("<:cinza_chat:1154769616543961189> | Comando utilizado")
+                .addField("<:preto_membro:1154843741891338282> Membro", member.getAsMention() + " | `" + member.getId() + "`", true)
+                .addField("<:cinza_hashtag:1154769641336479814> Comando","`" + comando+ "`", true)
+                .addField("<:cinza_chat:1154769616543961189> Canal", canal.getAsMention() + " | `" + canal.getName()+ "`", true)
+                .addField("<:preto_calendario:1154843611020677151> Horario", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">", true)
                 .setThumbnail(member.getEffectiveAvatar().getUrl());
 
 

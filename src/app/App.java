@@ -21,6 +21,7 @@ import app.commands.prefixCommands.vips.Addvip;
 import app.commands.prefixCommands.vips.CallView;
 import app.commands.prefixCommands.vips.RemoveVip;
 import app.commands.prefixCommands.vips.Vip;
+import app.commands.slash.guild.AddEmoji;
 import app.commands.slash.guild.EmbedCreator;
 import app.commands.slash.misc.Boosters;
 import app.commands.slash.misc.EmojiInfo;
@@ -88,6 +89,7 @@ public class App {
         jda.addEventListener(new Addvip());
         jda.addEventListener(new RemoveVip());
         jda.addEventListener(new CallView());
+//        jda.addEventListener(new AddEmoji());
 
 
         jda.awaitReady();

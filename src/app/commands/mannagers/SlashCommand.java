@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.App.jda;
 import static app.statics.cargos.Funcionais.cargoVerificado;
 
 public class SlashCommand extends ListenerAdapter
@@ -18,6 +19,8 @@ public class SlashCommand extends ListenerAdapter
     public void onGuildReady(GuildReadyEvent event) {
 
         List<CommandData> commandData = new ArrayList<>();
+        List<CommandData> globalData = new ArrayList<>();
+
 
         //EmbedCreator
         OptionData titulo = new OptionData(OptionType.STRING, "titulo", "Titulo da mensagem", false);
@@ -28,7 +31,7 @@ public class SlashCommand extends ListenerAdapter
         OptionData thumbnail = new OptionData(OptionType.ATTACHMENT, "thumb", "Imagem da thumbnail", false);
         OptionData canal = new OptionData(OptionType.CHANNEL, "canal", "Canal a ser enviado", false);
 
-        OptionData emoji = new OptionData(OptionType.STRING, "emoji", "Emoji ou o ID do emoji a ser procurado", true);
+        OptionData emoji = new OptionData(OptionType.STRING, "emoji", "Emoji ou o ID do emoji", true);
 
         //Sorteio
         OptionData sorteado = new OptionData(OptionType.STRING, "item", "O que será sorteado", true);
@@ -40,16 +43,18 @@ public class SlashCommand extends ListenerAdapter
         OptionData infouser = new OptionData(OptionType.USER, "user", "Usuário a ser consultado", false);
 
         //Adiciona os slashs
-        commandData.add(Commands.slash("ping", "Responde com o ping do bot"));
+        globalData.add(Commands.slash("ping", "Responde com o ping do bot"));
+//        commandData.add(Commands.slash("addemoji", "Adiciona um emoji ao servidor").addOptions(emoji));
         commandData.add(Commands.slash("sorteio", "Cria um novo sorteio").addOptions(sorteado, duracao, descricao, cSorteio, cargoSorteio));
         commandData.add(Commands.slash("criarembed", "Cria uma mensagem embed.").addOptions(descricao,titulo, cor, footer, imagem, thumbnail, canal));
-        commandData.add(Commands.slash("emojiinfo", "Busca informações sobre um emoji").addOptions(emoji));
+        globalData.add(Commands.slash("emojiinfo", "Busca informações sobre um emoji").addOptions(emoji));
         commandData.add(Commands.slash("boosters", "Mostra os membros dando boost no servidor"));
-        commandData.add(Commands.slash("infouser", "Informações sobre um usuário").addOptions(infouser));
+        globalData.add(Commands.slash("infouser", "Informações sobre um usuário").addOptions(infouser));
 
 
 
         //Atualiza toda vez que o bot reinicia
         event.getGuild().updateCommands().addCommands(commandData).queue();
+        jda.updateCommands().addCommands(globalData).queue();
     }
 }

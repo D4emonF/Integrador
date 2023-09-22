@@ -26,7 +26,7 @@ public class VerificationEmbed extends ListenerAdapter {
 
 
                 EmbedBuilder v = new EmbedBuilder();
-                v.setTitle("<:preto_membro:1124563263439507538> | Verificação");
+                v.setTitle("<:preto_membro:1154843741891338282> | Verificação");
                 v.setDescription("> Envie um \".\" e espere algum "+ cargoVerificador.getAsMention() +" te verificar no servidor");
                 v.setColor(monteCarlo);
                 canalVerificacao.sendMessage("").setEmbeds(v.build()).queue();

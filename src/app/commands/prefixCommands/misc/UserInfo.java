@@ -29,17 +29,18 @@ public class UserInfo extends ListenerAdapter {
         String[] mensagem = event.getMessage().getContentRaw().split(" ");
 
 
-        if (mensagem.length > 1 && obterMembro(mensagem) != null) {
-            member = obterMembro(mensagem);
-        }
-        else
-        {
-            member = event.getMember();
-        }
+
 
 
 
         if (mensagem[0].equalsIgnoreCase(prefixo + "ui") || mensagem[0].equalsIgnoreCase(prefixo + "userinfo") || mensagem[0].equalsIgnoreCase(prefixo + "iu") || mensagem[0].equalsIgnoreCase(prefixo + "infouser")){
+            if (mensagem.length > 1 && obterMembro(mensagem) != null) {
+                member = obterMembro(mensagem);
+            }
+            else
+            {
+                member = event.getMember();
+            }
             if (member == null) {
                 event.getChannel().sendMessage("O membro escolhido não foi encontrado ou não existe").queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
             }else {
@@ -93,8 +94,8 @@ public class UserInfo extends ListenerAdapter {
                 .setColor(Color.decode("#2B2D31"))
                 .setTitle(user.getName())
                 .addField("<:preto_id:1141064862273917028>  ID:", "`" + user.getId() + "`", true)
-                .addField("<:preto_membro:1124563263439507538> Apelido:", apelido, true)
-                .addField("<:preto_calendario:1141067399790088353> Criado em:", "<t:" + gerarTimestamp(tempoCriacao) + "> ("+ "<t:" + gerarTimestamp(tempoCriacao) + ":R>)", true);
+                .addField("<:preto_membro:1154843741891338282> Apelido:", apelido, true)
+                .addField("<:preto_calendario:1154843611020677151> Criado em:", "<t:" + gerarTimestamp(tempoCriacao) + "> ("+ "<t:" + gerarTimestamp(tempoCriacao) + ":R>)", true);
 
 
         if (!flags.isEmpty()){
@@ -104,12 +105,12 @@ public class UserInfo extends ListenerAdapter {
         }
 
         userinfo
-                .addField("<:preto_calendario:1141067399790088353> Entrou no servidor em:", "<t:" + gerarTimestamp(tempoEntrada) + "> ("+ "<t:" + gerarTimestamp(tempoEntrada) + ":R>)", true);
+                .addField("<:preto_calendario:1154843611020677151> Entrou no servidor em:", "<t:" + gerarTimestamp(tempoEntrada) + "> ("+ "<t:" + gerarTimestamp(tempoEntrada) + ":R>)", true);
 
 
         if (membro.getTimeBoosted() != null){
             LocalDateTime tempoNitro = membro.getTimeBoosted().toLocalDateTime();
-            userinfo.addField("<:preto_calendario:1141067399790088353> Deu boost no servidor em:", "<t:" + gerarTimestamp(tempoNitro) + "> ("+ "<t:" + gerarTimestamp(tempoNitro) + ":R>)", true);
+            userinfo.addField("<:preto_calendario:1154843611020677151> Deu boost no servidor em:", "<t:" + gerarTimestamp(tempoNitro) + "> ("+ "<t:" + gerarTimestamp(tempoNitro) + ":R>)", true);
         }
         String bannerURL = getBanner(user.getId());
 

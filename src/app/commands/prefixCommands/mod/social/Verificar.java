@@ -45,8 +45,8 @@ public class Verificar extends ListenerAdapter {
                                 novoVerificado
                                         .setColor(monteCarlo)
                                         .setTitle("Nova verificação")
-                                        .addField("<:preto_membro:1124563263439507538> Verificador", moderador.getAsMention() + " `" + moderador.getId() + "`", true)
-                                        .addField("<:preto_membro:1124563263439507538> Verificado", verificado.getAsMention() + " `" + verificado.getId() + "`", true)
+                                        .addField("<:preto_membro:1154843741891338282> Verificador", moderador.getAsMention() + " `" + moderador.getId() + "`", true)
+                                        .addField("<:preto_membro:1154843741891338282> Verificado", verificado.getAsMention() + " `" + verificado.getId() + "`", true)
                                         .setThumbnail(verificado.getUser().getAvatarUrl())
                                         .setImage(getBanner(verificado.getId()));
 
@@ -58,7 +58,7 @@ public class Verificar extends ListenerAdapter {
                                 {
                                     event.getChannel().asTextChannel().sendMessage("").setEmbeds(novoVerificado.build()).queue(message -> message.delete().queueAfter(7, TimeUnit.SECONDS));
                                 }
-                                novoVerificado.addField("<:preto_calendario:1141067399790088353> Horario", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">" , true);
+                                novoVerificado.addField("<:preto_calendario:1154843611020677151> Horario", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">" , true);
 
                                 logVerificacoes.sendMessage("").setEmbeds(novoVerificado.build()).queue();
                             } else {
