@@ -11,5 +11,5 @@ public interface Funcionais
  Role cargoMembro = ygd.getRoleById("1145365199075934269");
  Role cargoTemporario = ygd.getRoleById("1145793907578372237");
  Role cargoVerificado = ygd.getRoleById("1151666444971552890");
-
+Role cargoMinecraft = ygd.getRoleById("1155283226257010822");
 }

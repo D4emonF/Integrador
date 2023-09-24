@@ -2,6 +2,7 @@ package app;
 
 import app.commands.mannagers.MessageReceived;
 import app.commands.mannagers.SlashCommand;
+import app.commands.prefixCommands.embeds.AccesMinecraft;
 import app.commands.prefixCommands.embeds.VerificacaoInstagram;
 import app.commands.prefixCommands.embeds.VerificationEmbed;
 import app.commands.prefixCommands.misc.Afk;
@@ -27,6 +28,7 @@ import app.commands.slash.misc.Boosters;
 import app.commands.slash.misc.EmojiInfo;
 import app.commands.slash.misc.Ping;
 import app.commands.slash.misc.Sorteio;
+import app.events.bot.Buttons.Minecraft;
 import app.events.bot.OnGuildReady;
 import app.events.bot.OnReady;
 import app.events.functions.AutoClear;
@@ -89,7 +91,8 @@ public class App {
         jda.addEventListener(new Addvip());
         jda.addEventListener(new RemoveVip());
         jda.addEventListener(new CallView());
-//        jda.addEventListener(new AddEmoji());
+        jda.addEventListener(new AccesMinecraft());
+        jda.addEventListener(new Minecraft());
 
 
         jda.awaitReady();

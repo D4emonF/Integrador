@@ -14,5 +14,7 @@ public interface Geral
     TextChannel canalKosame = ygd.getTextChannelById("1153421462003253341");
     VoiceChannel canalLucius = ygd.getVoiceChannelById("1145874795829936198");
     TextChannel canalInstagram = ygd.getTextChannelById("1151663643998564475");
+    TextChannel canalAcessoMine = ygd.getTextChannelById("1155283120690561125");
     Category categoriaVips = ygd.getCategoryById("1152993108879999137");
+
 }
