@@ -1,0 +1,1002 @@
+Index: .idea/artifacts/Viviene_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/artifacts/Viviene_jar.xml b/.idea/artifacts/Viviene_jar.xml
+--- a/.idea/artifacts/Viviene_jar.xml	(revision Staged)
++++ b/.idea/artifacts/Viviene_jar.xml	(date 1699386086933)
+@@ -1,0 +1,13 @@
++<component name="ArtifactManager">
++  <artifact type="jar" name="Viviene:jar">
++    <output-path>$PROJECT_DIR$/out/artifacts/Viviene_jar</output-path>
++    <root id="archive" name="Viviene.jar">
++      <element id="module-output" name="Viviene" />
++      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-api-2.20.0.jar" path-in-jar="/" />
++      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-slf4j-impl-2.20.0.jar" path-in-jar="/" />
++      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-core-2.20.0.jar" path-in-jar="/" />
++      <element id="extracted-dir" path="$PROJECT_DIR$/lib/sqlite-jdbc-3.43.0.0.jar" path-in-jar="/" />
++      <element id="extracted-dir" path="$PROJECT_DIR$/lib/JDA-5.0.0-beta.17-withDependencies.jar" path-in-jar="/" />
++    </root>
++  </artifact>
++</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+--- a/.idea/.gitignore	(revision Staged)
++++ b/.idea/.gitignore	(date 1699383761495)
+@@ -1,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.name b/.idea/.name
+--- a/.idea/.name	(revision Staged)
++++ b/.idea/.name	(date 1699395005986)
+@@ -1,0 +1,1 @@
++JDA-5.0.0-beta.17-withDependencies.jar
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+--- a/.idea/dataSources.xml	(revision Staged)
++++ b/.idea/dataSources.xml	(date 1699468697418)
+@@ -1,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="Viviene.db" uuid="cdd66b9a-6257-4601-b6a8-7d8747e5531d">
++      <driver-ref>sqlite.xerial</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
++      <jdbc-url>jdbc:sqlite:C:\Users\davi\Documents\IntelliJ\Projetos\Viviene\Viviene.db</jdbc-url>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/discord.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/discord.xml b/.idea/discord.xml
+--- a/.idea/discord.xml	(revision Staged)
++++ b/.idea/discord.xml	(date 1699384003526)
+@@ -1,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DiscordProjectSettings">
++    <option name="show" value="PROJECT_FILES" />
++    <option name="description" value="" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision Staged)
++++ b/.idea/misc.xml	(date 1699384034025)
+@@ -1,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision Staged)
++++ b/.idea/modules.xml	(date 1699383755763)
+@@ -1,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Viviene.iml" filepath="$PROJECT_DIR$/Viviene.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/sqldialects.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sqldialects.xml b/.idea/sqldialects.xml
+--- a/.idea/sqldialects.xml	(revision Staged)
++++ b/.idea/sqldialects.xml	(date 1699468697430)
+@@ -1,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="SqlDialectMappings">
++    <file url="file://$PROJECT_DIR$/src/app/db/read/Read.java" dialect="GenericSQL" />
++    <file url="PROJECT" dialect="SQLite" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+--- a/.idea/uiDesigner.xml	(revision Staged)
++++ b/.idea/uiDesigner.xml	(date 1699567660100)
+@@ -1,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision Staged)
++++ b/.idea/vcs.xml	(date 1699383763625)
+@@ -1,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/app/commands/mannagers/SCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/commands/mannagers/SCommand.java b/src/app/commands/mannagers/SCommand.java
+--- a/src/app/commands/mannagers/SCommand.java	(revision Staged)
++++ b/src/app/commands/mannagers/SCommand.java	(date 1699638502474)
+@@ -5,7 +5,7 @@
+ 
+ import java.util.List;
+ 
+-public interface ICommand {
++public interface SCommand {
+     String getName();
+     String getDescription();
+     List<OptionData> getOptions();
+Index: src/app/commands/mannagers/SlashManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/commands/mannagers/SlashManager.java b/src/app/commands/mannagers/SlashManager.java
+--- a/src/app/commands/mannagers/SlashManager.java	(revision Staged)
++++ b/src/app/commands/mannagers/SlashManager.java	(date 1699638502454)
+@@ -1,0 +1,59 @@
++package app.commands.mannagers;
++
++import net.dv8tion.jda.api.entities.Guild;
++import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
++import net.dv8tion.jda.api.events.session.ReadyEvent;
++import net.dv8tion.jda.api.hooks.ListenerAdapter;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class SlashManager extends ListenerAdapter {
++    private List<SCommand> commands = new ArrayList<>();
++
++    @Override
++    public void onReady(ReadyEvent event) {
++        for (Guild guild : event.getJDA().getGuilds()) {
++            for (SCommand command : commands) {
++                guild.upsertCommand(command.getName(), command.getDescription()).addOptions(command.getOptions()).queue();
++            }
++        }
++    }
++
++    @Override
++    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
++        for (SCommand command : commands) {
++            if (command.getName().equals(event.getName())) {
++                command.execute(event);
++                return;
++            }
++        }
++    }
++
++    public void add(SCommand command) {
++        commands.add(command);
++    }
++
++    protected String getComamnds(){
++        StringBuilder sb = new StringBuilder();
++
++        for (SCommand command: commands
++             ) {
++            if (command.equals(commands.get(0))) {
++                sb.append("ComandoSlash - ").append(command.getName());
++            }
++            else {
++                sb.append("\n").append("ComandoSlash - ").append(command.getName());
++            }
++        }
++        if (commands.isEmpty()){
++
++        }
++        return sb.toString();
++    }
++
++    @Override
++    public String toString() {
++        return getComamnds();
++    }
++}
+Index: src/app/commands/mannagers/TCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/commands/mannagers/TCommand.java b/src/app/commands/mannagers/TCommand.java
+--- a/src/app/commands/mannagers/TCommand.java	(revision Staged)
++++ b/src/app/commands/mannagers/TCommand.java	(date 1699638944994)
+@@ -1,0 +1,53 @@
++package app.commands.mannagers;
++
++
++import net.dv8tion.jda.api.entities.Member;
++import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
++import net.dv8tion.jda.api.hooks.ListenerAdapter;
++
++public class TCommand extends ListenerAdapter {
++
++    private String[] mensagem;
++    private Member author;
++    private Member member;
++    MessageReceivedEvent event;
++
++
++    public String[] getMensagem() {
++        return mensagem;
++    }
++
++    public void setMensagem(String[] mensagem) {
++        this.mensagem = mensagem;
++    }
++
++    public Member getAuthor() {
++        return author;
++    }
++
++    public void setAuthor(Member author) {
++        this.author = author;
++    }
++
++    public Member getMember() {
++        return member;
++    }
++
++    public void setMember(Member member) {
++        this.member = member;
++    }
++
++    public MessageReceivedEvent getEvent() {
++        return event;
++    }
++
++    public void setEvent(MessageReceivedEvent event) {
++        this.event = event;
++    }
++
++    public TCommand(){
++        setEvent(event);
++        setMensagem(event.getMessage().getContentRaw().split(" "));
++        setAuthor(event.getMember());
++    }
++}
+Index: src/app/events/guild/messages/MessageDelete.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/events/guild/messages/MessageDelete.java b/src/app/events/guild/messages/MessageDelete.java
+--- a/src/app/events/guild/messages/MessageDelete.java	(revision Staged)
++++ b/src/app/events/guild/messages/MessageDelete.java	(date 1699663621337)
+@@ -1,2 +1,73 @@
+-package app.events.guild.messages;public class MessageDeleted {
++package app.events.guild.messages;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.fasterxml.jackson.databind.node.ObjectNode;
++import net.dv8tion.jda.api.EmbedBuilder;
++import net.dv8tion.jda.api.entities.Member;
++import net.dv8tion.jda.api.entities.channel.Channel;
++import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
++import net.dv8tion.jda.api.events.message.MessageDeleteEvent;
++import net.dv8tion.jda.api.hooks.ListenerAdapter;
++import net.dv8tion.jda.api.utils.FileUpload;
++
++import java.awt.*;
++import java.io.File;
++import java.io.IOException;
++import java.time.LocalDateTime;
++
++import static app.configs.Intialize.bot;
++import static app.db.read.Read.*;
++import static app.statics.Functions.*;
++
++public class MessageDelete extends ListenerAdapter {
++    ObjectMapper objectMapper = new ObjectMapper();
++
++    @Override
++    public void onMessageDelete(MessageDeleteEvent event) {
++        ObjectNode config = null;
++        try {
++            config = objectMapper.readValue(new File(("config.json")), ObjectNode.class);
++
++            TextChannel log = event.getGuild().getTextChannelById(config.get("logMessageDeleted").asText());
++            String newValue = getMessageNew(event.getMessageId());
++            Member member = event.getGuild().getMemberById(getMessageAuthorId(event.getMessageId()));
++
++            if (getMessageAuthorId(event.getMessageId()) != null) {
++
++                if (!bot.getUserById(getMessageAuthorId(event.getMessageId())).isBot()) {
++
++                    if ((gerarTimestamp(LocalDateTime.now()) - getMessageTimestamp(event.getMessageId()) > 1)) {
++                        System.out.println("evento iniciado");
++                        Channel canal = event.getChannel();
++                        EmbedBuilder deleted = new EmbedBuilder();
++                        deleted
++                                .setTitle("Mensagem Deletada")
++                                .addField("<:cinza_chat:1171898778601656320> Canal", canal.getAsMention() + " | `" + canal.getName() + "`", true)
++                                .addField("<:preto_calendario:1171224917891629056> Horário", "<t:" + gerarTimestamp(LocalDateTime.now()) + ":d>", true)
++                                .addField("<:preto_membro:1171224894504185897> Membro", member.getAsMention() + " `" + member.getEffectiveName() + "`", true)
++                                .setColor(Color.red);
++
++                        if (newValue.length() > 1022) {
++                            deleted.setDescription("Mensagem muito grande para enviar na embed, verifique os attachments.");
++                            salvarConteudo("MensagemNova.txt", newValue);
++                            log.sendMessage("").setEmbeds(deleted.build()).queue();
++                            log.sendFiles(FileUpload.fromData(new File("MensagemNova.txt"))).queue();
++                            excluirArquivo("MensagemAntiga.txt");
++                        } else {
++                            deleted.addField("<:cinza_hashtag:1171243525090852964> Mensagem", "`" + newValue + "`", false);
++                            log.sendMessageEmbeds(deleted.build()).queue();
++                        }
++                    }
++                }
++            }
++        } catch (IOException e) {
++            throw new RuntimeException(e);
++        }
++    }
++
++
++    @Override
++    public String toString() {
++        return "Evento - MessageDelete";
++    }
+ }
+Index: src/app/events/guild/messages/MessageEdited.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/events/guild/messages/MessageEdited.java b/src/app/events/guild/messages/MessageEdited.java
+--- a/src/app/events/guild/messages/MessageEdited.java	(revision Staged)
++++ b/src/app/events/guild/messages/MessageEdited.java	(date 1699650523795)
+@@ -1,0 +1,95 @@
++package app.events.guild.messages;
++
++import com.fasterxml.jackson.core.exc.StreamReadException;
++import com.fasterxml.jackson.databind.DatabindException;
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.fasterxml.jackson.databind.node.ObjectNode;
++import net.dv8tion.jda.api.EmbedBuilder;
++import net.dv8tion.jda.api.entities.Member;
++import net.dv8tion.jda.api.entities.channel.Channel;
++import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
++import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
++import net.dv8tion.jda.api.hooks.ListenerAdapter;
++import net.dv8tion.jda.api.utils.FileUpload;
++
++import java.awt.*;
++import java.io.File;
++import java.io.IOException;
++import java.sql.SQLException;
++import java.time.LocalDateTime;
++
++import static app.db.read.Read.getMessageOld;
++import static app.db.update.Update.editaMensagem;
++import static app.statics.Functions.*;
++
++public class MessageEdited extends ListenerAdapter {
++    ObjectMapper objectMapper = new ObjectMapper();
++    @Override
++    public void onMessageUpdate(MessageUpdateEvent event) {
++        try {
++            editaMensagem(event.getMessageId(), event.getMessage().getContentRaw());
++            EmbedBuilder edited = new EmbedBuilder();
++            Member member = event.getMember();
++            Channel canal = event.getChannel();
++            String oldValue = getMessageOld(event.getMessageId());
++            String newValue = event.getMessage().getContentRaw();
++            ObjectNode config = objectMapper.readValue(new File(("config.json")), ObjectNode.class);
++            TextChannel log = event.getGuild().getTextChannelById(config.get("logMessageEdited").asText());
++
++            edited
++                    .setTitle("Mensagem editada!")
++                    .addField("<:preto_membro:1171224894504185897> Membro", member.getAsMention() + " `" + member.getEffectiveName() + "`", true)
++                    .addField("<:cinza_chat:1171898778601656320> Canal", canal.getAsMention() + " `" + canal.getName() + "`", true)
++                    .addField("<:cinza_hashtag:1171243525090852964> Mensagem", event.getMessage().getJumpUrl() +" `" + event.getMessageId() + "`", true)
++                    .addField("<:preto_calendario:1171224917891629056> Horário", "<t:" + gerarTimestamp(LocalDateTime.now()) + ">", true)
++                    .setThumbnail(member.getAvatarUrl())
++                    .setColor(Color.orange);
++
++            if (oldValue.length() > 1022){
++                salvarConteudo("MensagemAntiga.txt", oldValue);
++                edited.setDescription("Mensagem muito grande para enviar na embed, verifique os attachments.");
++                if (newValue.length() > 1022){
++                    salvarConteudo("MensagemNova.txt", newValue);
++                    log.sendMessage("").setEmbeds(edited.build()).queue();
++                    log.sendFiles(FileUpload.fromData(new File("MensagemAntiga.txt")), FileUpload.fromData(new File("MensagemNova.txt"))).queue();
++                    excluirArquivo("MensagemAntiga.txt");
++                    excluirArquivo("MensagemNova.txt");
++                } else {
++                    edited.addField("<:cinza_hashtag:1171243525090852964> Mensagem Nova", "`" +  newValue + "`", false);
++                    log.sendMessage("").setEmbeds(edited.build()).addFiles(FileUpload.fromData(new File("MensagemAntiga.txt"))).queue();
++                    excluirArquivo("MensagemAntiga.txt");
++                }
++            } else if (newValue.length() > 1022) {
++                edited
++                        .setDescription("Mensagem muito grande para enviar na embed, verifique os attachments.")
++                        .addField("<:cinza_hashtag:1171243525090852964> Mensagem Antiga", "`" +  oldValue + "`", false);
++                salvarConteudo("MensagemNova.txt", newValue);
++                log.sendMessageEmbeds(edited.build()).queue();
++                log.sendFiles(FileUpload.fromData(new File("MensagemNova.txt"))).queue();
++
++            } else {
++                edited
++                        .addField("<:cinza_hashtag:1171243525090852964> Mensagem Antiga", "`" +  oldValue + "`", false)
++                        .addField("<:cinza_hashtag:1171243525090852964> Mensagem Nova", "`" +  newValue + "`", false);
++                log.sendMessageEmbeds(edited.build()).queue();
++            }
++
++
++
++
++        } catch (SQLException e) {
++            throw new RuntimeException(e);
++        } catch (StreamReadException e) {
++            throw new RuntimeException(e);
++        } catch (DatabindException e) {
++            throw new RuntimeException(e);
++        } catch (IOException e) {
++            throw new RuntimeException(e);
++        }
++    }
++
++    @Override
++    public String toString() {
++        return "Evento - MessageEdited";
++    }
++}
+Index: src/app/lavaplayer/AudioFowader.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/lavaplayer/AudioFowader.java b/src/app/lavaplayer/AudioFowader.java
+--- a/src/app/lavaplayer/AudioFowader.java	(revision Staged)
++++ b/src/app/lavaplayer/AudioFowader.java	(date 1699558964281)
+@@ -1,0 +1,34 @@
++package app.lavaplayer;
++
++import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
++import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;
++import net.dv8tion.jda.api.audio.AudioSendHandler;
++
++import java.nio.ByteBuffer;
++
++public class AudioFowader implements AudioSendHandler {
++
++    private final AudioPlayer player;
++    private final ByteBuffer buffer = ByteBuffer.allocate(1024);
++    private final MutableAudioFrame frame = new MutableAudioFrame();
++
++    public AudioFowader(AudioPlayer player) {
++        this.player = player;
++        frame.setBuffer(buffer);
++    }
++
++    @Override
++    public boolean canProvide() {
++        return player.provide(frame);
++    }
++
++    @Override
++    public ByteBuffer provide20MsAudio() {
++        return buffer.flip();
++    }
++
++    @Override
++    public boolean isOpus() {
++        return true;
++    }
++}
+Index: src/app/lavaplayer/GuildMusicManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/lavaplayer/GuildMusicManager.java b/src/app/lavaplayer/GuildMusicManager.java
+--- a/src/app/lavaplayer/GuildMusicManager.java	(revision Staged)
++++ b/src/app/lavaplayer/GuildMusicManager.java	(date 1699558964238)
+@@ -1,0 +1,25 @@
++package app.lavaplayer;
++
++import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
++import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
++
++public class GuildMusicManager {
++
++    private  TrackScheduler trackScheduler;
++    private AudioFowader audioFowader;
++
++    public GuildMusicManager(AudioPlayerManager manager) {
++        AudioPlayer player = manager.createPlayer();
++        trackScheduler = new TrackScheduler(player);
++        player.addListener(trackScheduler);
++        audioFowader = new AudioFowader(player);
++    }
++
++    public TrackScheduler getTrackScheduler() {
++        return trackScheduler;
++    }
++
++    public AudioFowader getAudioFowader() {
++        return audioFowader;
++    }
++}
+Index: src/app/lavaplayer/Play.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/lavaplayer/Play.java b/src/app/lavaplayer/Play.java
+--- a/src/app/lavaplayer/Play.java	(revision Staged)
++++ b/src/app/lavaplayer/Play.java	(date 1699638502447)
+@@ -1,0 +1,57 @@
++package app.lavaplayer;
++
++import app.commands.mannagers.SCommand;
++import net.dv8tion.jda.api.entities.GuildVoiceState;
++import net.dv8tion.jda.api.entities.Member;
++import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
++import net.dv8tion.jda.api.interactions.commands.OptionType;
++import net.dv8tion.jda.api.interactions.commands.build.OptionData;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class Play implements SCommand {
++    @Override
++    public String getName() {
++        return "play";
++    }
++
++    @Override
++    public String getDescription() {
++        return "Coloca a musica selecionada na fila";
++    }
++
++    @Override
++    public List<OptionData> getOptions() {
++        List<OptionData> data = new ArrayList<>();
++        data.add(new OptionData(OptionType.STRING, "musica", "Nome da musica desejada"));
++        return data;
++    }
++
++    @Override
++    public void execute(SlashCommandInteractionEvent event) {
++        Member member = event.getMember();
++        GuildVoiceState memberVoiceState = member.getVoiceState();
++        if (!memberVoiceState.inAudioChannel()){
++            event.reply("Você deve estar em um canal de voz").setEphemeral(true).queue();
++            return;
++        }
++
++        Member self = event.getGuild().getSelfMember();
++        GuildVoiceState selfVoiceState = self.getVoiceState();
++
++        if (!selfVoiceState.inAudioChannel()) {
++            event.getGuild().getAudioManager().openAudioConnection(memberVoiceState.getChannel());
++        }
++        else  {
++            if (selfVoiceState.getChannel() != memberVoiceState.getChannel()) {
++                event.reply("Você deve estar no mesmo canal de voz que eu.").setEphemeral(true).queue();
++                return;
++            }
++        }
++
++        PlayerManager playerManager = PlayerManager.get();
++        event.reply("Tocando agora").queue();
++        playerManager.play(event.getGuild(), event.getOption("name").getAsString());
++    }
++}
+Index: src/app/lavaplayer/PlayerManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/lavaplayer/PlayerManager.java b/src/app/lavaplayer/PlayerManager.java
+--- a/src/app/lavaplayer/PlayerManager.java	(revision Staged)
++++ b/src/app/lavaplayer/PlayerManager.java	(date 1699571249454)
+@@ -1,0 +1,65 @@
++package app.lavaplayer;
++
++import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
++import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
++import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
++import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
++import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
++import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
++import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
++import net.dv8tion.jda.api.entities.Guild;
++
++import java.util.HashMap;
++import java.util.Map;
++
++public class PlayerManager {
++    private static PlayerManager INSTANCE;
++    private Map<Long, GuildMusicManager> guildMusicManagers = new HashMap<>();
++    private AudioPlayerManager audioPlayerManager = new DefaultAudioPlayerManager();
++    private PlayerManager() {
++        AudioSourceManagers.registerRemoteSources(audioPlayerManager);
++        AudioSourceManagers.registerLocalSource(audioPlayerManager);
++    }
++    public static PlayerManager get(){
++        if (INSTANCE == null) {
++            INSTANCE = new PlayerManager();
++        }
++        return INSTANCE;
++    }
++    public GuildMusicManager getGuildMusicManager(Guild guild){
++        return guildMusicManagers.computeIfAbsent(guild.getIdLong(), (guildId) -> {
++            GuildMusicManager musicManager = new GuildMusicManager(audioPlayerManager);
++
++            guild.getAudioManager().setSendingHandler(musicManager.getAudioFowader());
++            return musicManager;
++        });
++    }
++
++    public void play(Guild guild, String trackUrl) {
++        GuildMusicManager guildMusicManager = getGuildMusicManager(guild);
++        audioPlayerManager.loadItemOrdered(guildMusicManager, trackUrl, new AudioLoadResultHandler() {
++            @Override
++            public void trackLoaded(AudioTrack track) {
++                guildMusicManager.getTrackScheduler().queue(track);
++
++            }
++
++            @Override
++            public void playlistLoaded(AudioPlaylist audioPlaylist) {
++
++            }
++
++            @Override
++            public void noMatches() {
++
++            }
++
++            @Override
++            public void loadFailed(FriendlyException e) {
++
++            }
++        });
++    }
++
++}
++
+Index: src/app/lavaplayer/TrackScheduler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/lavaplayer/TrackScheduler.java b/src/app/lavaplayer/TrackScheduler.java
+--- a/src/app/lavaplayer/TrackScheduler.java	(revision Staged)
++++ b/src/app/lavaplayer/TrackScheduler.java	(date 1699558964230)
+@@ -1,0 +1,41 @@
++package app.lavaplayer;
++
++import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
++import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
++import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
++import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
++
++import java.util.concurrent.BlockingDeque;
++import java.util.concurrent.LinkedBlockingDeque;
++
++public class TrackScheduler extends AudioEventAdapter {
++    private AudioPlayer player;
++    private final BlockingDeque<AudioTrack> queue = new LinkedBlockingDeque<>();
++
++    public TrackScheduler(AudioPlayer player){
++        this.player = player;
++    }
++
++    @Override
++    public void onTrackEnd(AudioPlayer player, AudioTrack track, AudioTrackEndReason endReason) {
++        player.startTrack(queue.poll(), false);
++    }
++
++    public void queue(AudioTrack track){
++        if (!player.startTrack(track, true)){
++            queue.offer(track);
++        }
++    }
++
++    public AudioPlayer getPlayer() {
++        return player;
++    }
++
++    public void setPlayer(AudioPlayer player) {
++        this.player = player;
++    }
++
++    public BlockingDeque<AudioTrack> getQueue() {
++        return queue;
++    }
++}
+Index: src/META-INF/MANIFEST.MF
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/META-INF/MANIFEST.MF b/src/META-INF/MANIFEST.MF
+--- a/src/META-INF/MANIFEST.MF	(revision Staged)
++++ b/src/META-INF/MANIFEST.MF	(date 1699664172142)
+@@ -1,0 +1,2 @@
++Manifest-Version: 1.0
++Main-Class: app.App
+Index: Viviene.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Viviene.iml b/Viviene.iml
+--- a/Viviene.iml	(revision Staged)
++++ b/Viviene.iml	(date 1699561136581)
+@@ -1,0 +1,89 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/log4j-api-2.20.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/log4j-core-2.20.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/log4j-slf4j-impl-2.20.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/sqlite-jdbc-3.43.0.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/JDA-5.0.0-beta.17-withDependencies.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/lava-common-1.5.1.jar!/" />
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-1.5.1.jar!/" />
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-ext-format-xm-1.5.1.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/lib/lava-common-1.5.1-sources.jar!/" />
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-1.5.1-sources.jar!/" />
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-ext-format-xm-1.5.1-sources.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-natives-1.5.1-sources.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/lavaplayer-natives-1.5.1.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++  </component>
++</module>
+\ No newline at end of file
